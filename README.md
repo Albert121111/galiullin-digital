@@ -30,6 +30,14 @@ npm run build
 
 В проекте используется `next dev --webpack` и `next build --webpack`, потому что Turbopack в текущей версии Next.js нестабильно работает в пути с кириллицей.
 
+## Деплой
+
+Сайт опубликован на GitHub Pages:
+
+https://albert121111.github.io/galiullin-digital/
+
+Автоматический деплой настроен через `.github/workflows/deploy-pages.yml`. После push в `main` GitHub Actions запускает lint, production-сборку и публикует статический сайт.
+
 ## Страницы
 
 - `/` — главная страница портфолио
