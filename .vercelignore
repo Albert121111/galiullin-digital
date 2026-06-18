@@ -1,0 +1,13 @@
+.git
+.next
+.vercel
+node_modules
+out
+build
+
+*.log
+.env*
+!.env.example
+
+Thumbs.db
+.DS_Store
