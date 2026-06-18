@@ -75,11 +75,11 @@ export default function Home() {
   return (
     <main className="overflow-hidden">
       <section className="relative isolate px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
-        <div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_16%_18%,rgba(34,211,238,0.18),transparent_28%),radial-gradient(circle_at_84%_12%,rgba(52,211,153,0.14),transparent_30%),linear-gradient(180deg,#050706_0%,#071111_52%,#050706_100%)]" />
-        <div className="absolute left-1/2 top-10 -z-10 h-64 w-[40rem] -translate-x-1/2 rounded-full bg-cyan-300/10 blur-3xl" />
+        <div className="animated-gradient absolute inset-0 -z-20 bg-[radial-gradient(circle_at_16%_18%,rgba(34,211,238,0.18),transparent_28%),radial-gradient(circle_at_84%_12%,rgba(52,211,153,0.14),transparent_30%),linear-gradient(180deg,#050706_0%,#071111_52%,#050706_100%)]" />
+        <div className="glow-breathe absolute left-1/2 top-10 -z-10 h-64 w-[40rem] -translate-x-1/2 rounded-full bg-cyan-300/10 blur-3xl" />
 
         <div className="mx-auto grid min-h-[680px] max-w-6xl items-center gap-12 lg:grid-cols-[0.95fr_1.05fr]">
-          <div className="max-w-3xl">
+          <div className="fade-up max-w-3xl">
             <p className="mb-5 inline-flex rounded-md border border-cyan-200/30 bg-white/[0.06] px-3 py-2 text-sm font-semibold text-cyan-100 shadow-[0_0_40px_rgba(34,211,238,0.12)]">
               Galiullin Digital
             </p>
@@ -97,11 +97,11 @@ export default function Home() {
                 Связаться
               </ButtonLink>
             </div>
-            <div className="mt-10 grid gap-3 sm:grid-cols-3">
+            <div className="fade-up fade-up-delay-1 mt-10 grid gap-3 sm:grid-cols-3">
               {heroStats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="rounded-lg border border-white/10 bg-white/[0.05] p-4"
+                  className="soft-card-motion rounded-lg border border-white/10 bg-white/[0.05] p-4"
                 >
                   <p className="text-2xl font-bold text-white">{stat.value}</p>
                   <p className="mt-1 text-sm leading-5 text-neutral-300">
@@ -112,7 +112,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="relative mx-auto w-full max-w-2xl">
+          <div className="fade-up fade-up-delay-2 relative mx-auto w-full max-w-2xl">
             <div className="absolute -right-8 -top-6 z-20 hidden rounded-lg border border-emerald-200/25 bg-emerald-300 px-4 py-3 text-sm font-bold text-neutral-950 shadow-2xl shadow-emerald-950/40 sm:block">
               +18 заявок за неделю
             </div>
@@ -125,7 +125,7 @@ export default function Home() {
               <p className="mt-2 text-neutral-300">Данные готовы к обработке</p>
             </div>
 
-            <div className="relative z-10 rounded-[1.25rem] border border-white/12 bg-white/[0.06] p-3 shadow-[0_30px_110px_rgba(0,0,0,0.55)] backdrop-blur">
+            <div className="float-soft relative z-10 rounded-[1.25rem] border border-white/12 bg-white/[0.06] p-3 shadow-[0_30px_110px_rgba(0,0,0,0.55)] backdrop-blur">
               <div className="rounded-lg border border-white/10 bg-neutral-950 p-2">
                 <div className="mb-2 flex items-center gap-2 px-2 py-1">
                   <span className="h-2.5 w-2.5 rounded-full bg-red-300" />
@@ -171,7 +171,7 @@ export default function Home() {
           {services.map((service, index) => (
             <article
               key={service.title}
-              className="group rounded-lg border border-white/10 bg-white/[0.04] p-5 transition hover:-translate-y-1 hover:border-cyan-200/50 hover:bg-white/[0.07]"
+              className="soft-card-motion group rounded-lg border border-white/10 bg-white/[0.04] p-5 transition hover:border-cyan-200/35 hover:bg-white/[0.07]"
             >
               <span className="flex h-10 w-10 items-center justify-center rounded-md bg-neutral-900 text-sm font-bold text-emerald-200 ring-1 ring-white/10 transition group-hover:bg-emerald-300 group-hover:text-neutral-950">
                 {String(index + 1).padStart(2, "0")}
@@ -198,7 +198,7 @@ export default function Home() {
           {projects.map((project) => (
             <article
               key={project.title}
-              className="group flex h-full flex-col overflow-hidden rounded-lg border border-white/10 bg-neutral-900/80 shadow-2xl shadow-black/15 transition hover:-translate-y-1 hover:border-emerald-200/50 hover:bg-neutral-900"
+              className="soft-card-motion group flex h-full flex-col overflow-hidden rounded-lg border border-white/10 bg-neutral-900/80 shadow-2xl shadow-black/15 transition hover:border-emerald-200/35 hover:bg-neutral-900"
             >
               <div className="relative aspect-[16/10] overflow-hidden border-b border-white/10 bg-neutral-950">
                 <Image
@@ -260,7 +260,7 @@ export default function Home() {
           {demoTrustCards.map((card) => (
             <article
               key={card.title}
-              className="rounded-3xl border border-white/10 bg-white/[0.045] p-5 transition hover:-translate-y-1 hover:border-cyan-200/45 hover:bg-white/[0.07]"
+              className="soft-card-motion rounded-3xl border border-white/10 bg-white/[0.045] p-5 transition hover:border-cyan-200/35 hover:bg-white/[0.07]"
             >
               <div className="mb-5 h-2 w-12 rounded-full bg-gradient-to-r from-cyan-300 to-emerald-300" />
               <h3 className="text-xl font-semibold text-white">
@@ -281,7 +281,7 @@ export default function Home() {
           {comfortCards.map((card) => (
             <article
               key={card.title}
-              className="rounded-lg border border-white/10 bg-gradient-to-b from-white/[0.07] to-white/[0.03] p-5 transition hover:border-emerald-200/45"
+              className="soft-card-motion rounded-lg border border-white/10 bg-gradient-to-b from-white/[0.07] to-white/[0.03] p-5 transition hover:border-emerald-200/35"
             >
               <div className="mb-5 h-1.5 w-12 rounded-full bg-gradient-to-r from-cyan-300 to-emerald-300" />
               <h3 className="text-xl font-semibold text-white">{card.title}</h3>
@@ -301,7 +301,7 @@ export default function Home() {
           {workflow.map((step, index) => (
             <article
               key={step.title}
-              className="rounded-lg border border-white/10 bg-neutral-950/70 p-5"
+              className="soft-card-motion rounded-lg border border-white/10 bg-neutral-950/70 p-5"
             >
               <span className="flex h-9 w-9 items-center justify-center rounded-md bg-emerald-300 text-sm font-bold text-neutral-950">
                 {index + 1}
@@ -326,7 +326,7 @@ export default function Home() {
           {benefits.map((benefit) => (
             <div
               key={benefit}
-              className="rounded-lg border border-white/10 bg-neutral-950/80 px-5 py-4 text-lg font-semibold text-white transition hover:border-cyan-200/45 hover:bg-white/[0.04]"
+              className="soft-card-motion rounded-lg border border-white/10 bg-neutral-950/80 px-5 py-4 text-lg font-semibold text-white transition hover:border-cyan-200/35 hover:bg-white/[0.04]"
             >
               {benefit}
             </div>
@@ -341,7 +341,7 @@ export default function Home() {
         className="bg-white/[0.02]"
       >
         <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
-          <div className="rounded-lg border border-white/10 bg-neutral-950/72 p-6">
+          <div className="soft-card-motion rounded-lg border border-white/10 bg-neutral-950/72 p-6">
             <p className="text-lg leading-8 text-neutral-200">
               Обычно я начинаю с демо: показываю, как может выглядеть страница,
               где будет форма, как клиент оставит заявку и куда она придёт.
@@ -358,7 +358,7 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <div className="relative overflow-hidden rounded-lg border border-white/10 bg-gradient-to-br from-cyan-300/14 via-neutral-900 to-emerald-300/12 p-6">
+          <div className="soft-card-motion animated-gradient relative overflow-hidden rounded-lg border border-white/10 bg-gradient-to-br from-cyan-300/14 via-neutral-900 to-emerald-300/12 p-6">
             <div className="flex items-center gap-4">
               <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-cyan-300 to-emerald-300 text-2xl font-black text-neutral-950">
                 GD
@@ -387,7 +387,7 @@ export default function Home() {
       </Section>
 
       <section className="px-5 py-16 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-6xl overflow-hidden rounded-lg border border-cyan-200/18 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.18),transparent_34%),linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))] p-6 shadow-2xl shadow-black/20 sm:p-8 lg:p-10">
+        <div className="soft-card-motion animated-gradient mx-auto max-w-6xl overflow-hidden rounded-lg border border-cyan-200/18 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.18),transparent_34%),linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))] p-6 shadow-2xl shadow-black/20 sm:p-8 lg:p-10">
           <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
             <div>
               <p className="text-sm font-semibold uppercase text-emerald-200">
@@ -420,7 +420,7 @@ export default function Home() {
             <a
               key={contact.label}
               href={contact.href}
-              className="rounded-lg border border-white/10 bg-white/[0.04] p-5 transition hover:-translate-y-1 hover:border-cyan-200/60 hover:bg-white/[0.07] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200"
+              className="soft-card-motion rounded-lg border border-white/10 bg-white/[0.04] p-5 transition hover:border-cyan-200/40 hover:bg-white/[0.07] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200"
             >
               <p className="text-sm font-semibold text-cyan-200">
                 {contact.label}

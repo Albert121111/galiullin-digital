@@ -44,6 +44,130 @@ a {
   color: #ffffff;
 }
 
+[class*="border-white/10"] {
+  border-color: rgba(255, 255, 255, 0.07);
+}
+
+[class*="border-white/12"],
+[class*="border-white/15"],
+[class*="border-white/20"] {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[class*="border-[#2b2928]/10"] {
+  border-color: rgba(43, 41, 40, 0.07);
+}
+
+.soft-card-motion {
+  transform: translateZ(0);
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    background-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.soft-card-motion:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 54px rgba(0, 0, 0, 0.22);
+}
+
+.animated-gradient {
+  background-size: 140% 140%;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -10px, 0);
+  }
+}
+
+@keyframes glow-breathe {
+  0%,
+  100% {
+    opacity: 0.42;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.68;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes gradient-drift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .fade-up {
+    animation: fade-up 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .fade-up-delay-1 {
+    animation-delay: 90ms;
+  }
+
+  .fade-up-delay-2 {
+    animation-delay: 180ms;
+  }
+
+  .float-soft {
+    animation: float-soft 6s ease-in-out infinite;
+  }
+
+  .glow-breathe {
+    animation: glow-breathe 7s ease-in-out infinite;
+  }
+
+  .animated-gradient {
+    animation: gradient-drift 12s ease infinite;
+  }
+
+  [data-animate="section"] {
+    animation: fade-up 720ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  main > section {
+    animation: fade-up 680ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  @supports (animation-timeline: view()) {
+    [data-animate="section"],
+    main > section {
+      animation-timeline: view();
+      animation-range: entry 0% cover 22%;
+    }
+  }
+}
+
 .field-input {
   width: 100%;
   min-height: 3rem;

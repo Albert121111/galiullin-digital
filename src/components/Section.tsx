@@ -18,7 +18,11 @@ export function Section({
   className = "",
 }: SectionProps) {
   return (
-    <section id={id} className={`px-5 py-16 sm:px-6 sm:py-20 lg:px-8 ${className}`}>
+    <section
+      id={id}
+      data-animate="section"
+      className={`px-5 py-16 sm:px-6 sm:py-20 lg:px-8 ${className}`}
+    >
       <div className="mx-auto max-w-6xl">
         <div className="mb-10 max-w-3xl">
           {eyebrow ? (
