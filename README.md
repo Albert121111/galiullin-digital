@@ -1,6 +1,6 @@
 # Galiullin Digital
 
-Портфолио digital/AI-студии для малого бизнеса. Проект показывает, как можно упаковать услуги в сайт, подключить формы заявок, Telegram-ботов, AI-ассистентов и простую автоматизацию.
+Портфолио начинающей digital/AI-студии для малого бизнеса. Сайт показывает демо-кейсы решений: лендинги, формы заявок, онлайн-запись, калькулятор стоимости, Telegram-уведомления и простую автоматизацию.
 
 ## Стек
 
@@ -8,6 +8,7 @@
 - TypeScript
 - Tailwind CSS
 - App Router
+- `next/image` для локальных изображений
 - Адаптивная верстка
 - Компонентная структура
 
@@ -31,37 +32,53 @@ npm run build
 
 ## Страницы
 
-- `/` - главная страница студии
-- `/cases/fitness` - демо-кейс FamilyFit Coach
-- `/cases/beauty` - демо-кейс BeautyLine Studio
-- `/cases/autoservice` - демо-кейс AutoPro Service
-- `/contact` - контакты
+- `/` — главная страница портфолио
+- `/cases/fitness` — демо-кейс FamilyFit Coach
+- `/cases/beauty` — демо-кейс BeautyLine Studio
+- `/cases/autoservice` — демо-кейс AutoPro Service
+- `/contact` — контакты
 
-## Где менять тексты и карточки
+## Где менять контент
 
-Основные карточки услуг, проектов, этапов и контактов находятся в `src/data/site.ts`.
-
-Главная страница находится в `src/app/page.tsx`.
+- Главные карточки услуг, проектов, этапов и контактов: `src/data/site.ts`
+- Главная страница: `src/app/page.tsx`
+- Страница контактов: `src/app/contact/page.tsx`
+- Общий блок доверия на кейсах: `src/components/CaseGrowthBlocks.tsx`
+- Клиентские демо-лендинги с формами: `src/components/*Demo*.tsx`
 
 ## Как добавить новый кейс
 
 1. Добавьте карточку проекта в массив `projects` в `src/data/site.ts`.
 2. Создайте страницу `src/app/cases/<slug>/page.tsx`.
-3. Добавьте SEO `metadata` с `title` и `description`.
-4. Если кейс содержит форму или калькулятор, вынесите интерактивную часть в client-компонент в `src/components`.
-5. В карточке проекта укажите `href: "/cases/<slug>"`.
+3. Добавьте SEO `metadata` с `title`, `description` и при необходимости `openGraph`.
+4. Если нужен интерактив, вынесите форму, калькулятор или другой client-side код в компонент в `src/components`.
+5. Добавьте изображение превью в `public` и используйте его через `next/image`.
+6. Добавьте маршрут в `src/app/sitemap.ts`.
 
 ## Как поменять контакты
 
-Контакты лежат в объекте `contacts` в `src/data/site.ts`.
+Основной канал связи лежит в `contacts` в `src/data/site.ts`.
 
-Замените значения:
+Сейчас на сайте оставлен только реальный Telegram:
 
-- `telegram.value` и `telegram.href`
-- `whatsapp.value` и `whatsapp.href`
-- `email.value` и `email.href`
+```ts
+telegram: {
+  label: "Telegram",
+  value: "@galiullin_digital",
+  href: "https://t.me/galiullin_digital",
+}
+```
 
-Эти данные автоматически обновятся на главной странице, странице контактов и в футере.
+Если появятся реальные WhatsApp или email, добавьте их в `contacts` и используйте `contactChannels` для вывода на страницах.
+
+## SEO и служебные файлы
+
+- Общие метатеги: `src/app/layout.tsx`
+- Метатеги страниц: соответствующие `page.tsx`
+- Favicon: `public/favicon.png`
+- Open Graph изображение: `public/og-image.png`
+- Robots: `src/app/robots.ts`
+- Sitemap: `src/app/sitemap.ts`
 
 ## Формы и интеграции
 

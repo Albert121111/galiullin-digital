@@ -2,15 +2,22 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { AutoServiceDemoSite } from "@/components/AutoServiceDemoSite";
+import { CaseGrowthBlocks } from "@/components/CaseGrowthBlocks";
 
 export const metadata: Metadata = {
-  title: "AutoPro Service - демо-кейс",
+  title: "AutoPro Service - демо-кейс сайта автосервиса",
   description:
-    "Демо-кейс сайта автосервиса с услугами, калькулятором стоимости и формой заявки.",
+    "Демо-кейс сайта для автосервиса AutoPro Service: услуги, прайс, калькулятор стоимости, фото процесса, отзывы и форма заявки.",
+  openGraph: {
+    title: "AutoPro Service - демо-кейс сайта автосервиса",
+    description:
+      "Технологичный сайт автосервиса с записью без звонка, расчетом стоимости и структурированными заявками.",
+    images: ["/auto-service-bay.jpg"],
+  },
 };
 
 const businessProblems = [
-  "Клиентам неудобно звонить, особенно когда нужно быстро узнать цену и свободное время.",
+  "Клиентам неудобно звонить, особенно когда нужно быстро понять цену и свободное время.",
   "Нет понятного списка услуг, поэтому человек не понимает, можно ли решить его задачу.",
   "Цены не структурированы и часто объясняются вручную в каждом отдельном диалоге.",
   "Заявки приходят хаотично из звонков, мессенджеров и личных сообщений.",
@@ -18,13 +25,30 @@ const businessProblems = [
 ];
 
 const deliveredItems = [
-  "Сайт автосервиса",
-  "Блок услуг",
-  "Таблица популярных работ",
-  "Калькулятор примерной стоимости",
-  "Отзывы",
-  "Форма заявки",
-  "Подготовка отправки заявок в Telegram",
+  {
+    title: "Услуги сервиса",
+    text: "Диагностика, ремонт, шиномонтаж и детейлинг показаны в визуальных карточках.",
+    image: "/auto-diagnostics.jpg",
+    alt: "Механик проводит диагностику автомобиля",
+  },
+  {
+    title: "Прайс популярных работ",
+    text: "Цена, время, гарантия и описание помогают клиенту быстрее сориентироваться.",
+    image: "/auto-brake-parts.jpg",
+    alt: "Автомобильные детали и тормозной диск на верстаке",
+  },
+  {
+    title: "Калькулятор стоимости",
+    text: "Клиент получает предварительную оценку до отправки заявки.",
+    image: "/auto-service-bay.jpg",
+    alt: "Современный автосервис с автомобилем на подъемнике",
+  },
+  {
+    title: "Форма заявки",
+    text: "Форма собирает автомобиль, услугу, удобное время и комментарий без звонка.",
+    image: "/auto-engine-repair.jpg",
+    alt: "Механик работает под капотом автомобиля",
+  },
 ];
 
 const siteFunctions = [
@@ -32,76 +56,138 @@ const siteFunctions = [
   "Выбор типа автомобиля",
   "Примерный расчет стоимости",
   "Форма заявки",
-  "Кнопки Telegram/WhatsApp",
+  "Кнопки связи",
   "FAQ",
   "Мобильная версия",
+  "Подготовка Telegram",
+];
+
+const clientBenefits = [
+  "Технологичная страница, которая сразу показывает услуги, оборудование и уровень сервиса.",
+  "Калькулятор предварительной стоимости, чтобы клиент понимал порядок бюджета до заявки.",
+  "Структурированное обращение с автомобилем, услугой, временем и комментарием без лишнего звонка.",
+  "Основа для рекламы, Telegram-уведомлений и дальнейшей CRM-обработки обращений.",
+];
+
+const processPhotos = [
+  {
+    title: "Диагностика",
+    image: "/auto-diagnostics.jpg",
+    alt: "Диагностика автомобиля через планшет",
+  },
+  {
+    title: "Шиномонтаж",
+    image: "/auto-tire-service.jpg",
+    alt: "Шиномонтаж и работа с колесом",
+  },
+  {
+    title: "Детейлинг",
+    image: "/auto-detailing.jpg",
+    alt: "Полировка кузова автомобиля",
+  },
+  {
+    title: "Ремонт",
+    image: "/auto-engine-repair.jpg",
+    alt: "Ремонт двигателя автомобиля",
+  },
 ];
 
 const businessResults = [
   "Клиент быстрее выбирает услугу и понимает примерный бюджет до обращения.",
   "Меньше лишних звонков с базовыми вопросами по услугам и стоимости.",
   "Заявки приходят структурированно: авто, услуга, время и комментарий в одном сообщении.",
-  "Выше доверие к сервису за счет понятной упаковки, этапов работ и отзывов.",
+  "Выше доверие к сервису за счет понятной упаковки, этапов работ, фото процесса и отзывов.",
   "Можно запускать рекламу на страницу и вести клиента сразу к расчету или форме.",
 ];
 
 export default function AutoserviceCasePage() {
   return (
-    <main className="overflow-hidden bg-[#08090b] text-white">
-      <section className="relative isolate px-5 py-20 sm:px-6 sm:py-24 lg:px-8">
+    <main className="overflow-hidden bg-[#07090d] text-white">
+      <section className="relative isolate px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
+        <div className="absolute inset-0 -z-20 bg-[#07090d]" />
         <Image
-          src="/autopro-service.png"
-          alt="Демо-интерфейс сайта AutoPro Service"
-          width={1400}
-          height={920}
+          src="/auto-service-bay.jpg"
+          alt="Современный автосервис AutoPro Service"
+          fill
           priority
-          className="absolute inset-0 -z-20 h-full w-full object-cover opacity-[0.52]"
+          sizes="100vw"
+          className="absolute inset-0 -z-10 object-cover opacity-[0.45]"
         />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#08090b] via-[#08090b]/90 to-[#08090b]/60" />
-        <div className="absolute inset-x-0 bottom-0 -z-10 h-28 bg-gradient-to-t from-[#08090b] to-transparent" />
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_74%_24%,rgba(56,189,248,0.24),transparent_30%),linear-gradient(90deg,#07090d_0%,rgba(7,9,13,0.94)_44%,rgba(7,9,13,0.64)_100%)]" />
+        <div className="absolute inset-x-0 bottom-0 -z-10 h-28 bg-gradient-to-t from-[#07090d] to-transparent" />
 
-        <div className="mx-auto grid min-h-[570px] max-w-6xl items-center gap-10 lg:grid-cols-[1.04fr_0.96fr]">
+        <div className="mx-auto grid min-h-[640px] max-w-6xl items-center gap-10 lg:grid-cols-[0.98fr_1.02fr]">
           <div>
-            <p className="mb-5 inline-flex rounded-md border border-orange-300/30 bg-black/45 px-3 py-2 text-sm font-semibold uppercase text-orange-200">
+            <p className="mb-5 inline-flex rounded-full border border-orange-300/30 bg-black/55 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-orange-200 shadow-lg shadow-black/30">
               Автосервис / шиномонтаж / детейлинг / диагностика
             </p>
-            <h1 className="text-5xl font-bold leading-[1.04] text-white sm:text-7xl">
+            <h1 className="text-5xl font-bold leading-[1.02] text-white sm:text-7xl">
               AutoPro Service
             </h1>
             <p className="mt-6 max-w-2xl text-xl leading-8 text-slate-200">
-              Сайт для автосервиса с записью и расчётом стоимости
+              Сайт для автосервиса с записью, расчетом стоимости и понятной
+              подачей работ.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <a
                 href="#auto-lead-form"
-                className="inline-flex min-h-12 items-center justify-center rounded-md bg-orange-400 px-6 py-3 text-sm font-black text-neutral-950 shadow-[0_18px_40px_rgba(251,146,60,0.25)] transition hover:bg-sky-300"
+                className="inline-flex min-h-12 items-center justify-center rounded-full bg-orange-400 px-6 py-3 text-sm font-black text-neutral-950 shadow-[0_18px_42px_rgba(251,146,60,0.28)] transition hover:-translate-y-0.5 hover:bg-sky-300 focus:outline-none focus:ring-4 focus:ring-orange-300/35"
               >
                 Записаться на сервис
               </a>
               <a
                 href="#auto-cost-calculator"
-                className="inline-flex min-h-12 items-center justify-center rounded-md border border-white/15 bg-white/10 px-6 py-3 text-sm font-black text-white transition hover:border-orange-200/70 hover:bg-white/15"
+                className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/15 bg-white/10 px-6 py-3 text-sm font-black text-white backdrop-blur transition hover:-translate-y-0.5 hover:border-sky-200/70 hover:bg-white/15 focus:outline-none focus:ring-4 focus:ring-sky-300/20"
               >
                 Рассчитать стоимость
               </a>
             </div>
+            <div className="mt-10 grid gap-3 sm:grid-cols-3">
+              <HeroStat value="4" label="направления работ" />
+              <HeroStat value="15 мин" label="до подтверждения" />
+              <HeroStat value="24/7" label="форма заявки" />
+            </div>
           </div>
 
-          <div className="rounded-lg border border-white/10 bg-black/60 p-5 shadow-2xl shadow-black/35 backdrop-blur">
-            <p className="text-sm font-semibold uppercase text-sky-200">
-              Цель проекта
-            </p>
-            <p className="mt-4 text-2xl font-bold leading-tight text-white">
-              Показать, как сайт помогает автосервису получать заявки на ремонт
-              и обслуживание.
-            </p>
-            <div className="mt-6 grid gap-3 text-sm text-slate-300 sm:grid-cols-2">
-              <span className="rounded-md border border-white/10 bg-white/5 px-3 py-3">
-                Ниша: ремонт, шины, детейлинг, диагностика
-              </span>
-              <span className="rounded-md border border-white/10 bg-white/5 px-3 py-3">
-                Формат: лендинг с расчетом и заявкой
-              </span>
+          <div className="relative">
+            <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-black/45 p-3 shadow-[0_34px_110px_rgba(0,0,0,0.42)] backdrop-blur">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[1.55rem] bg-[#10151d] sm:aspect-[5/4] lg:aspect-[4/5]">
+                <Image
+                  src="/auto-diagnostics.jpg"
+                  alt="Диагностика автомобиля в AutoPro Service"
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 520px, 100vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                <div className="absolute bottom-5 left-5 right-5 rounded-3xl border border-white/12 bg-black/70 p-5 backdrop-blur">
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-sky-200">
+                    Цель проекта
+                  </p>
+                  <p className="mt-2 text-lg font-bold leading-snug text-white">
+                    Показать, как сайт помогает автосервису получать заявки на
+                    ремонт и обслуживание.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="absolute -left-4 top-8 hidden rounded-3xl border border-white/10 bg-[#0d1117]/92 p-4 shadow-2xl backdrop-blur md:block">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-orange-300">
+                Расчет
+              </p>
+              <p className="mt-2 text-sm font-semibold text-white">
+                Диагностика ходовой
+              </p>
+              <p className="text-sm text-slate-300">от 1 800 ₽</p>
+            </div>
+
+            <div className="absolute -right-3 bottom-10 hidden w-60 rounded-3xl border border-sky-300/20 bg-[#0d1117]/92 p-5 text-white shadow-2xl backdrop-blur md:block">
+              <p className="text-sm font-bold text-sky-200">Заявка без звонка</p>
+              <p className="mt-2 text-sm leading-6 text-slate-300">
+                Авто, услуга и удобное время уже в сообщении администратора.
+              </p>
             </div>
           </div>
         </div>
@@ -113,11 +199,14 @@ export default function AutoserviceCasePage() {
         description="Автосервису нужна страница, где клиент видит услуги, популярные работы, примерную стоимость и может оставить заявку без звонка."
       >
         <div className="grid gap-4 md:grid-cols-2">
-          {businessProblems.map((problem) => (
+          {businessProblems.map((problem, index) => (
             <article
               key={problem}
-              className="rounded-lg border border-white/10 bg-white/[0.04] p-5"
+              className="rounded-3xl border border-white/10 bg-white/[0.045] p-6 shadow-[0_18px_60px_rgba(0,0,0,0.22)]"
             >
+              <span className="mb-5 flex h-10 w-10 items-center justify-center rounded-full bg-orange-400 text-sm font-black text-neutral-950">
+                {index + 1}
+              </span>
               <p className="leading-7 text-slate-200">{problem}</p>
             </article>
           ))}
@@ -130,14 +219,26 @@ export default function AutoserviceCasePage() {
         description="Страница показывает направления сервиса, популярные работы, примерный расчет, отзывы и форму заявки, которую дальше можно подключить к Telegram."
         className="bg-white/[0.025]"
       >
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-5 md:grid-cols-2">
           {deliveredItems.map((item) => (
-            <div
-              key={item}
-              className="rounded-lg border border-orange-300/20 bg-[#0d1117] px-4 py-4 font-semibold text-white"
+            <article
+              key={item.title}
+              className="overflow-hidden rounded-[1.65rem] border border-white/10 bg-[#0d1117] shadow-[0_18px_60px_rgba(0,0,0,0.30)]"
             >
-              {item}
-            </div>
+              <div className="relative h-56">
+                <Image
+                  src={item.image}
+                  alt={item.alt}
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-bold text-white">{item.title}</h3>
+                <p className="mt-3 leading-7 text-slate-300">{item.text}</p>
+              </div>
+            </article>
           ))}
         </div>
       </AutoCaseSection>
@@ -151,10 +252,47 @@ export default function AutoserviceCasePage() {
           {siteFunctions.map((feature) => (
             <article
               key={feature}
-              className="rounded-lg border border-white/10 bg-white/[0.04] p-5 transition hover:border-orange-300/50"
+              className="rounded-3xl border border-white/10 bg-white/[0.045] p-5 transition hover:-translate-y-1 hover:border-orange-300/55 hover:bg-white/[0.07]"
             >
-              <div className="mb-4 h-2 w-12 rounded-full bg-orange-400" />
+              <div className="mb-5 h-2 w-12 rounded-full bg-orange-400" />
               <h3 className="text-lg font-bold text-white">{feature}</h3>
+            </article>
+          ))}
+        </div>
+      </AutoCaseSection>
+
+      <CaseGrowthBlocks
+        variant="auto"
+        benefits={clientBenefits}
+        demoHref="#auto-cost-calculator"
+        title="Сервис получает понятный вход для заявок и предварительных расчетов"
+        description="Такой демо-сайт показывает, как снизить количество хаотичных звонков и собрать больше полезных данных до визита клиента."
+        adaptationText="Структуру можно адаптировать под автосервис, детейлинг, шиномонтаж, диагностику, кузовной ремонт или выездное обслуживание."
+      />
+
+      <AutoCaseSection
+        eyebrow="Фото процесса"
+        title="Реальные визуальные сценарии повышают доверие к сервису"
+        description="Для автосервиса важно показать не только список услуг, но и сам процесс: диагностику, ремонт, шиномонтаж и детейлинг."
+        className="bg-white/[0.025]"
+      >
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {processPhotos.map((photo) => (
+            <article
+              key={photo.title}
+              className="group relative min-h-72 overflow-hidden rounded-[1.65rem] border border-white/10 bg-[#0d1117] shadow-[0_18px_60px_rgba(0,0,0,0.30)]"
+            >
+              <Image
+                src={photo.image}
+                alt={photo.alt}
+                fill
+                sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                className="object-cover transition duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/72 via-transparent to-transparent" />
+              <p className="absolute bottom-4 left-4 rounded-full border border-white/10 bg-black/65 px-4 py-2 text-sm font-bold text-white backdrop-blur">
+                {photo.title}
+              </p>
             </article>
           ))}
         </div>
@@ -172,28 +310,53 @@ export default function AutoserviceCasePage() {
           {businessResults.map((result) => (
             <article
               key={result}
-              className="rounded-lg border border-white/10 bg-[#0d1117] p-5"
+              className="rounded-3xl border border-white/10 bg-[#0d1117] p-6"
             >
               <p className="leading-7 text-slate-200">{result}</p>
             </article>
           ))}
         </div>
-        <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-          <a
-            href="#auto-lead-form"
-            className="inline-flex min-h-12 items-center justify-center rounded-md bg-orange-400 px-6 py-3 text-sm font-black text-neutral-950 shadow-[0_18px_40px_rgba(251,146,60,0.22)] transition hover:bg-sky-300"
-          >
-            Оставить заявку
-          </a>
-          <a
-            href="#auto-cost-calculator"
-            className="inline-flex min-h-12 items-center justify-center rounded-md border border-white/15 bg-white/10 px-6 py-3 text-sm font-black text-white transition hover:border-sky-200/70"
-          >
-            Рассчитать стоимость
-          </a>
+        <div className="mt-10 overflow-hidden rounded-[2rem] border border-orange-300/18 bg-[#0d1117] p-7 shadow-[0_24px_80px_rgba(0,0,0,0.34)] sm:p-9">
+          <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
+            <div>
+              <p className="text-sm font-bold uppercase tracking-[0.18em] text-orange-300">
+                CTA
+              </p>
+              <h3 className="mt-3 text-3xl font-bold">
+                Хотите похожий сайт для автосервиса?
+              </h3>
+              <p className="mt-3 max-w-2xl leading-7 text-slate-300">
+                Можно адаптировать услуги, прайс, калькулятор, Telegram и
+                сценарий записи под ваш сервис.
+              </p>
+            </div>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <a
+                href="#auto-lead-form"
+                className="inline-flex min-h-12 items-center justify-center rounded-full bg-orange-400 px-6 py-3 text-sm font-black text-neutral-950 transition hover:bg-sky-300 focus:outline-none focus:ring-4 focus:ring-orange-300/35"
+              >
+                Оставить заявку
+              </a>
+              <a
+                href="#auto-cost-calculator"
+                className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/15 bg-white/10 px-6 py-3 text-sm font-black text-white transition hover:border-sky-200/70 hover:bg-white/15 focus:outline-none focus:ring-4 focus:ring-sky-300/20"
+              >
+                Рассчитать стоимость
+              </a>
+            </div>
+          </div>
         </div>
       </AutoCaseSection>
     </main>
+  );
+}
+
+function HeroStat({ value, label }: { value: string; label: string }) {
+  return (
+    <div className="rounded-2xl border border-white/10 bg-white/[0.07] p-4 shadow-lg shadow-black/20 backdrop-blur">
+      <p className="text-2xl font-black text-white">{value}</p>
+      <p className="mt-1 text-sm leading-5 text-slate-300">{label}</p>
+    </div>
   );
 }
 
@@ -215,8 +378,8 @@ function AutoCaseSection({
   return (
     <section className={`px-5 py-16 sm:px-6 lg:px-8 ${className}`}>
       <div className="mx-auto max-w-6xl">
-        <div className="mb-9 max-w-3xl">
-          <p className="mb-3 text-sm font-semibold uppercase text-orange-300">
+        <div className="mb-10 max-w-3xl">
+          <p className="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-orange-300">
             {eyebrow}
           </p>
           <h2 className="text-3xl font-bold text-white sm:text-4xl">{title}</h2>

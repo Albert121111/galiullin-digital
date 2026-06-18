@@ -2,11 +2,18 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { BeautyDemoSite } from "@/components/BeautyDemoSite";
+import { CaseGrowthBlocks } from "@/components/CaseGrowthBlocks";
 
 export const metadata: Metadata = {
-  title: "BeautyLine Studio - демо-кейс",
+  title: "BeautyLine Studio - демо-кейс сайта салона красоты",
   description:
-    "Демо-кейс сайта салона красоты с услугами, мастерами, ценами, отзывами и онлайн-записью.",
+    "Демо-кейс сайта для салона красоты BeautyLine Studio: услуги, мастера, цены, галерея работ, отзывы и онлайн-запись.",
+  openGraph: {
+    title: "BeautyLine Studio - демо-кейс сайта салона красоты",
+    description:
+      "Эстетичный сайт для салона красоты с онлайн-записью, мастерами, прайсом и галереей работ.",
+    images: ["/beauty-salon-interior.jpg"],
+  },
 };
 
 const businessProblems = [
@@ -18,12 +25,30 @@ const businessProblems = [
 ];
 
 const deliveredItems = [
-  "Сайт с услугами",
-  "Блок мастеров",
-  "Таблица цен",
-  "Отзывы",
-  "Форма онлайн-записи",
-  "Подготовка отправки заявок в Telegram/CRM",
+  {
+    title: "Услуги салона",
+    text: "Маникюр, брови, стрижки и окрашивание собраны в понятные карточки.",
+    image: "/beauty-manicure.jpg",
+    alt: "Аккуратный нюдовый маникюр",
+  },
+  {
+    title: "Карточки мастеров",
+    text: "Клиент видит специализацию, опыт и стиль работы каждого специалиста.",
+    image: "/beauty-master-diana.jpg",
+    alt: "Brow-мастер в салоне красоты",
+  },
+  {
+    title: "Прайс без путаницы",
+    text: "Цены сгруппированы по категориям, чтобы не искать их по постам.",
+    image: "/beauty-treatment.jpg",
+    alt: "Косметический кабинет с уходовыми средствами",
+  },
+  {
+    title: "Онлайн-запись",
+    text: "Форма собирает услугу, мастера, дату, время и комментарий клиента.",
+    image: "/beauty-salon-interior.jpg",
+    alt: "Светлый интерьер салона красоты",
+  },
 ];
 
 const siteFunctions = [
@@ -31,9 +56,38 @@ const siteFunctions = [
   "Выбор мастера",
   "Выбор даты и времени",
   "Карточки мастеров",
-  "Отзывы",
+  "Отзывы клиентов",
   "FAQ",
   "Мобильная версия",
+  "Подготовка Telegram/CRM",
+];
+
+const clientBenefits = [
+  "Красивая страница, которую можно отправить клиенту вместо набора постов и прайс-скринов.",
+  "Онлайн-запись с услугой, мастером, датой, временем и комментарием в одном формате.",
+  "Больше доверия за счет фото мастеров, атмосферы салона, работ и отзывов.",
+  "Основа для подключения Telegram, CRM или таблицы администратора без ручного копирования заявок.",
+];
+
+const atmosphere = [
+  {
+    title: "Интерьер",
+    text: "Светлая зона, которую хочется показать клиенту до визита.",
+    image: "/beauty-salon-interior.jpg",
+    alt: "Премиальный интерьер салона красоты в молочных оттенках",
+  },
+  {
+    title: "Уход",
+    text: "Фотографии процедур помогают снять ощущение неизвестности.",
+    image: "/beauty-treatment.jpg",
+    alt: "Уходовые средства и кушетка в beauty-кабинете",
+  },
+  {
+    title: "Волосы",
+    text: "Визуальный пример услуги делает страницу живой и продающей.",
+    image: "/beauty-hair-styling.jpg",
+    alt: "Укладка волос в салоне красоты",
+  },
 ];
 
 const businessResults = [
@@ -46,59 +100,81 @@ const businessResults = [
 export default function BeautyCasePage() {
   return (
     <main className="overflow-hidden bg-[#f7f1eb] text-[#2b2928]">
-      <section className="relative isolate px-5 py-20 sm:px-6 sm:py-24 lg:px-8">
-        <Image
-          src="/beautyline-studio.png"
-          alt="Демо-интерфейс сайта BeautyLine Studio"
-          width={1400}
-          height={920}
-          priority
-          className="absolute inset-0 -z-20 h-full w-full object-cover opacity-[0.45]"
-        />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#fffaf7] via-[#fffaf7]/95 to-[#fffaf7]/70" />
-        <div className="absolute inset-x-0 bottom-0 -z-10 h-28 bg-gradient-to-t from-[#f7f1eb] to-transparent" />
+      <section className="relative isolate px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
+        <div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_top_left,rgba(241,199,208,0.62),transparent_34%),linear-gradient(135deg,#fffaf7_0%,#f7f1eb_46%,#eadbd2_100%)]" />
+        <div className="absolute inset-x-0 bottom-0 -z-10 h-24 bg-gradient-to-t from-[#f7f1eb] to-transparent" />
 
-        <div className="mx-auto grid min-h-[570px] max-w-6xl items-center gap-10 lg:grid-cols-[1.02fr_0.98fr]">
+        <div className="mx-auto grid min-h-[640px] max-w-6xl items-center gap-10 lg:grid-cols-[0.95fr_1.05fr]">
           <div>
-            <p className="mb-5 inline-flex rounded-md border border-[#d99baa]/40 bg-white/70 px-3 py-2 text-sm font-semibold uppercase text-[#8e5160] shadow-sm">
-              Салон красоты / маникюр / брови / волосы
+            <p className="mb-5 inline-flex rounded-full border border-[#d99baa]/45 bg-white/78 px-4 py-2 text-xs font-bold uppercase tracking-[0.22em] text-[#8e5160] shadow-sm">
+              Салон красоты / онлайн-запись
             </p>
-            <h1 className="text-5xl font-bold leading-[1.04] text-[#252221] sm:text-7xl">
+            <h1 className="text-5xl font-bold leading-[1.02] text-[#252221] sm:text-7xl">
               BeautyLine Studio
             </h1>
             <p className="mt-6 max-w-2xl text-xl leading-8 text-[#5d5551]">
-              Сайт для салона красоты с онлайн-записью
+              Сайт для салона красоты с онлайн-записью, мастерами, прайсом и
+              визуальной подачей услуг.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <a
                 href="#beauty-booking-form"
-                className="inline-flex min-h-11 items-center justify-center rounded-md bg-[#c8798b] px-5 py-3 text-sm font-bold text-white shadow-[0_16px_34px_rgba(200,121,139,0.28)] transition hover:bg-[#ad6275]"
+                className="inline-flex min-h-12 items-center justify-center rounded-full bg-[#c8798b] px-6 py-3 text-sm font-bold text-white shadow-[0_18px_40px_rgba(200,121,139,0.30)] transition hover:-translate-y-0.5 hover:bg-[#ad6275] focus:outline-none focus:ring-4 focus:ring-[#f1c7d0]/60"
               >
                 Записаться онлайн
               </a>
               <a
                 href="/contact"
-                className="inline-flex min-h-11 items-center justify-center rounded-md border border-[#2b2928]/10 bg-white/70 px-5 py-3 text-sm font-bold text-[#2b2928] shadow-sm transition hover:border-[#c8798b]/50 hover:bg-white"
+                className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#2b2928]/10 bg-white/82 px-6 py-3 text-sm font-bold text-[#2b2928] shadow-sm transition hover:-translate-y-0.5 hover:border-[#c8798b]/50 hover:bg-white focus:outline-none focus:ring-4 focus:ring-[#f1c7d0]/50"
               >
                 Обсудить похожий проект
               </a>
             </div>
+            <div className="mt-10 grid gap-3 sm:grid-cols-3">
+              <HeroStat value="1 мин" label="до отправки записи" />
+              <HeroStat value="4" label="направления услуг" />
+              <HeroStat value="CRM" label="готово к интеграции" />
+            </div>
           </div>
 
-          <div className="rounded-lg border border-white/80 bg-white/80 p-5 shadow-[0_24px_70px_rgba(72,50,43,0.16)] backdrop-blur">
-            <p className="text-sm font-semibold uppercase text-[#a65f72]">
-              Цель проекта
-            </p>
-            <p className="mt-4 text-2xl font-bold leading-tight text-[#2b2928]">
-              Показать, как сайт помогает салону красоты получать онлайн-записи.
-            </p>
-            <div className="mt-6 grid gap-3 text-sm text-[#655c57] sm:grid-cols-2">
-              <span className="rounded-md border border-[#2b2928]/10 bg-[#fffaf7] px-3 py-3">
-                Ниша: салон красоты и услуги мастеров
-              </span>
-              <span className="rounded-md border border-[#2b2928]/10 bg-[#fffaf7] px-3 py-3">
-                Формат: демо-сайт с онлайн-записью
-              </span>
+          <div className="relative">
+            <div className="absolute -left-6 top-10 hidden rounded-3xl bg-white/85 p-4 shadow-[0_18px_45px_rgba(72,50,43,0.16)] backdrop-blur md:block">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#a65f72]">
+                Новая запись
+              </p>
+              <p className="mt-2 text-sm font-semibold text-[#2b2928]">
+                Маникюр + дизайн
+              </p>
+              <p className="text-sm text-[#736964]">Сегодня, 16:30</p>
+            </div>
+
+            <div className="overflow-hidden rounded-[2rem] border border-white/85 bg-white/72 p-3 shadow-[0_30px_90px_rgba(72,50,43,0.18)] backdrop-blur">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[1.55rem] bg-[#eadbd2] sm:aspect-[5/4] lg:aspect-[4/5]">
+                <Image
+                  src="/beauty-salon-interior.jpg"
+                  alt="Светлый интерьер салона красоты BeautyLine Studio"
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 520px, 100vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#2b2928]/45 via-transparent to-transparent" />
+                <div className="absolute bottom-5 left-5 right-5 rounded-2xl border border-white/40 bg-white/86 p-5 shadow-lg backdrop-blur">
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#a65f72]">
+                    Цель проекта
+                  </p>
+                  <p className="mt-2 text-lg font-bold leading-snug text-[#2b2928]">
+                    Показать, как сайт помогает салону получать онлайн-записи.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="absolute -right-4 bottom-7 hidden w-56 rounded-3xl bg-[#2b2928] p-5 text-white shadow-[0_18px_45px_rgba(72,50,43,0.24)] md:block">
+              <p className="text-sm font-bold text-[#f1c7d0]">Telegram/CRM</p>
+              <p className="mt-2 text-sm leading-6 text-[#efe7e2]">
+                Заявка приходит с услугой, мастером, датой и комментарием.
+              </p>
             </div>
           </div>
         </div>
@@ -110,11 +186,14 @@ export default function BeautyCasePage() {
         description="Салону нужна страница, где клиент видит услуги, цены, мастеров и сразу оставляет запись с нужными деталями."
       >
         <div className="grid gap-4 md:grid-cols-2">
-          {businessProblems.map((problem) => (
+          {businessProblems.map((problem, index) => (
             <article
               key={problem}
-              className="rounded-lg border border-[#2b2928]/10 bg-white p-5 shadow-[0_14px_38px_rgba(72,50,43,0.08)]"
+              className="rounded-3xl border border-[#2b2928]/10 bg-white/86 p-6 shadow-[0_18px_45px_rgba(72,50,43,0.08)]"
             >
+              <span className="mb-5 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#f1c7d0] text-sm font-black text-[#8e5160]">
+                {index + 1}
+              </span>
               <p className="leading-7 text-[#4f4844]">{problem}</p>
             </article>
           ))}
@@ -127,14 +206,28 @@ export default function BeautyCasePage() {
         description="Страница объединяет услуги, мастеров, цены, отзывы и форму записи, которую затем можно подключить к Telegram или CRM."
         className="bg-[#fffaf7]"
       >
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-5 md:grid-cols-2">
           {deliveredItems.map((item) => (
-            <div
-              key={item}
-              className="rounded-lg border border-[#c8798b]/20 bg-white px-4 py-4 font-semibold text-[#2b2928] shadow-sm"
+            <article
+              key={item.title}
+              className="overflow-hidden rounded-[1.65rem] border border-[#2b2928]/10 bg-white shadow-[0_18px_50px_rgba(72,50,43,0.10)]"
             >
-              {item}
-            </div>
+              <div className="relative h-56">
+                <Image
+                  src={item.image}
+                  alt={item.alt}
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-bold text-[#2b2928]">
+                  {item.title}
+                </h3>
+                <p className="mt-3 leading-7 text-[#635b56]">{item.text}</p>
+              </div>
+            </article>
           ))}
         </div>
       </BeautyCaseSection>
@@ -148,10 +241,57 @@ export default function BeautyCasePage() {
           {siteFunctions.map((feature) => (
             <article
               key={feature}
-              className="rounded-lg border border-[#2b2928]/10 bg-white p-5 shadow-[0_14px_38px_rgba(72,50,43,0.08)]"
+              className="rounded-3xl border border-[#2b2928]/10 bg-white/86 p-5 shadow-[0_14px_38px_rgba(72,50,43,0.08)] transition hover:-translate-y-1 hover:shadow-[0_20px_55px_rgba(72,50,43,0.12)]"
             >
-              <div className="mb-4 h-2 w-12 rounded-full bg-[#d99baa]" />
+              <div className="mb-5 h-2 w-12 rounded-full bg-[#d99baa]" />
               <h3 className="text-lg font-bold text-[#2b2928]">{feature}</h3>
+            </article>
+          ))}
+        </div>
+      </BeautyCaseSection>
+
+      <CaseGrowthBlocks
+        variant="light"
+        benefits={clientBenefits}
+        demoHref="#beauty-booking-form"
+        title="Салон получает красивую витрину и более аккуратную запись"
+        description="Такой демо-сайт показывает, как собрать услуги, мастеров, прайс, работы и форму записи в один понятный сценарий."
+        adaptationText="Структуру можно адаптировать под салон красоты, студию маникюра, brow bar, парикмахерскую, косметолога или небольшой spa-проект."
+      />
+
+      <BeautyCaseSection
+        eyebrow="Атмосфера салона"
+        title="Фотографии добавляют доверие еще до первого визита"
+        description="Для beauty-бизнеса визуал критичен: интерьер, процедуры и примеры работ помогают клиенту быстрее принять решение."
+        className="bg-[#fffaf7]"
+      >
+        <div className="grid gap-5 lg:grid-cols-3">
+          {atmosphere.map((item, index) => (
+            <article
+              key={item.title}
+              className={`overflow-hidden rounded-[1.65rem] border border-[#2b2928]/10 bg-white shadow-[0_18px_50px_rgba(72,50,43,0.10)] ${
+                index === 0 ? "lg:col-span-2" : ""
+              }`}
+            >
+              <div className="relative h-72">
+                <Image
+                  src={item.image}
+                  alt={item.alt}
+                  fill
+                  sizes={
+                    index === 0
+                      ? "(min-width: 1024px) 66vw, 100vw"
+                      : "(min-width: 1024px) 33vw, 100vw"
+                  }
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-[#2b2928]">
+                  {item.title}
+                </h3>
+                <p className="mt-2 leading-7 text-[#635b56]">{item.text}</p>
+              </div>
             </article>
           ))}
         </div>
@@ -169,28 +309,53 @@ export default function BeautyCasePage() {
           {businessResults.map((result) => (
             <article
               key={result}
-              className="rounded-lg border border-[#2b2928]/10 bg-white p-5 shadow-[0_14px_38px_rgba(72,50,43,0.08)]"
+              className="rounded-3xl border border-[#2b2928]/10 bg-white p-6 shadow-[0_14px_38px_rgba(72,50,43,0.08)]"
             >
               <p className="leading-7 text-[#4f4844]">{result}</p>
             </article>
           ))}
         </div>
-        <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-          <a
-            href="#beauty-booking-form"
-            className="inline-flex min-h-11 items-center justify-center rounded-md bg-[#c8798b] px-5 py-3 text-sm font-bold text-white shadow-[0_16px_34px_rgba(200,121,139,0.24)] transition hover:bg-[#ad6275]"
-          >
-            Открыть форму записи
-          </a>
-          <a
-            href="/contact"
-            className="inline-flex min-h-11 items-center justify-center rounded-md border border-[#2b2928]/10 bg-white px-5 py-3 text-sm font-bold text-[#2b2928] shadow-sm transition hover:border-[#c8798b]/50"
-          >
-            Обсудить похожий проект
-          </a>
+        <div className="mt-10 overflow-hidden rounded-[2rem] bg-[#2b2928] p-7 text-white shadow-[0_24px_70px_rgba(72,50,43,0.18)] sm:p-9">
+          <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
+            <div>
+              <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#f1c7d0]">
+                CTA
+              </p>
+              <h3 className="mt-3 text-3xl font-bold">
+                Хотите похожий сайт для своего салона?
+              </h3>
+              <p className="mt-3 max-w-2xl leading-7 text-[#eadfd9]">
+                Можно адаптировать структуру под ваши услуги, мастеров,
+                прайс, Telegram и реальные процессы записи.
+              </p>
+            </div>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <a
+                href="#beauty-booking-form"
+                className="inline-flex min-h-12 items-center justify-center rounded-full bg-[#f1c7d0] px-6 py-3 text-sm font-bold text-[#2b2928] transition hover:bg-white focus:outline-none focus:ring-4 focus:ring-white/30"
+              >
+                Открыть форму записи
+              </a>
+              <a
+                href="/contact"
+                className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/15 px-6 py-3 text-sm font-bold text-white transition hover:border-[#f1c7d0] hover:bg-white/8 focus:outline-none focus:ring-4 focus:ring-white/20"
+              >
+                Обсудить похожий проект
+              </a>
+            </div>
+          </div>
         </div>
       </BeautyCaseSection>
     </main>
+  );
+}
+
+function HeroStat({ value, label }: { value: string; label: string }) {
+  return (
+    <div className="rounded-2xl border border-white/80 bg-white/72 p-4 shadow-sm backdrop-blur">
+      <p className="text-2xl font-black text-[#2b2928]">{value}</p>
+      <p className="mt-1 text-sm leading-5 text-[#6f645f]">{label}</p>
+    </div>
   );
 }
 
@@ -212,8 +377,8 @@ function BeautyCaseSection({
   return (
     <section className={`px-5 py-16 sm:px-6 lg:px-8 ${className}`}>
       <div className="mx-auto max-w-6xl">
-        <div className="mb-9 max-w-3xl">
-          <p className="mb-3 text-sm font-semibold uppercase text-[#a65f72]">
+        <div className="mb-10 max-w-3xl">
+          <p className="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-[#a65f72]">
             {eyebrow}
           </p>
           <h2 className="text-3xl font-bold text-[#2b2928] sm:text-4xl">

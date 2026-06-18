@@ -10,7 +10,7 @@ type ButtonLinkProps = {
 
 const variants = {
   primary:
-    "bg-cyan-300 text-neutral-950 hover:bg-emerald-300 focus-visible:outline-cyan-200",
+    "bg-cyan-300 text-neutral-950 shadow-[0_16px_34px_rgba(34,211,238,0.20)] hover:bg-emerald-300 focus-visible:outline-cyan-200",
   secondary:
     "border border-white/20 bg-white/5 text-white hover:border-cyan-200/70 hover:bg-white/10 focus-visible:outline-white",
 };
@@ -24,7 +24,7 @@ export function ButtonLink({
   return (
     <Link
       href={href}
-      className={`inline-flex min-h-11 items-center justify-center rounded-md px-5 py-3 text-sm font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${variants[variant]} ${className}`}
+      className={`inline-flex min-h-12 items-center justify-center rounded-full px-6 py-3 text-sm font-bold transition duration-200 hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${variants[variant]} ${className}`}
     >
       {children}
     </Link>

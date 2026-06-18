@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { contacts } from "@/data/site";
+import { contactChannels } from "@/data/site";
 
 export function Footer() {
   return (
@@ -14,11 +14,11 @@ export function Footer() {
           </p>
         </div>
         <div className="flex flex-wrap gap-3">
-          {Object.values(contacts).map((contact) => (
+          {contactChannels.map((contact) => (
             <a
               key={contact.label}
               href={contact.href}
-              className="rounded-md border border-white/10 px-3 py-2 transition hover:border-cyan-200/70 hover:text-white"
+              className="rounded-full border border-white/10 px-4 py-2 transition hover:border-cyan-200/70 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200"
             >
               {contact.label}
             </a>

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import type { FormEvent, ReactNode } from "react";
 import { useState } from "react";
 
@@ -22,54 +23,100 @@ const initialLead: FitnessLead = {
 const services = [
   {
     title: "Семейные тренировки",
-    text: "Занятия для родителей и детей с безопасной нагрузкой и понятным планом.",
+    text: "Занятия для родителей и детей с безопасной нагрузкой, простыми упражнениями и понятным планом.",
+    image: "/fitness-family-training.jpg",
+    mark: "FT",
   },
   {
     title: "Подростковая подготовка",
     text: "Развитие силы, координации и дисциплины без перегруза и сложных программ.",
+    image: "/fitness-teen-training.jpg",
+    mark: "TE",
   },
   {
     title: "Персональный старт",
     text: "Оценка текущей формы, постановка цели и первые тренировки с тренером.",
+    image: "/fitness-personal-training.jpg",
+    mark: "PT",
   },
 ];
 
 const prices = [
-  { title: "Пробная", price: "1 500 ₽", text: "45 минут, знакомство и план действий" },
-  { title: "4 тренировки", price: "6 900 ₽", text: "Подходит для мягкого старта" },
-  { title: "8 тренировок", price: "12 900 ₽", text: "Регулярная работа с прогрессом" },
+  {
+    title: "Пробная",
+    price: "1 500 ₽",
+    text: "45 минут, знакомство, оценка уровня и первый план действий",
+  },
+  {
+    title: "4 тренировки",
+    price: "6 900 ₽",
+    text: "Мягкий старт для семьи или подростка без перегруза",
+  },
+  {
+    title: "8 тренировок",
+    price: "12 900 ₽",
+    text: "Регулярная работа с прогрессом и поддержкой между занятиями",
+  },
 ];
 
 const advantages = [
-  "Безопасная техника",
-  "План под цель семьи",
-  "Понятная нагрузка",
-  "Поддержка между занятиями",
+  { title: "Безопасная техника", mark: "01" },
+  { title: "План под цель семьи", mark: "02" },
+  { title: "Понятная нагрузка", mark: "03" },
+  { title: "Поддержка между занятиями", mark: "04" },
 ];
 
 const reviews = [
   {
-    name: "Анна, мама подростка",
-    text: "Сын стал увереннее на тренировках и наконец понял, зачем нужна разминка и режим.",
+    name: "Анна",
+    role: "мама подростка",
+    goal: "осанка и уверенность",
+    text: "Сын стал увереннее на тренировках и наконец понял, зачем нужна разминка, режим и постепенная нагрузка.",
   },
   {
     name: "Илья и Марина",
-    text: "Нам понравилось, что тренировки подходят всей семье, без давления и сложных терминов.",
+    role: "семейный формат",
+    goal: "регулярность",
+    text: "Понравилось, что тренировки подходят всей семье: без давления, сложных терминов и ощущения, что мы что-то делаем неправильно.",
+  },
+  {
+    name: "Денис",
+    role: "персональный старт",
+    goal: "вернуться к форме",
+    text: "После первой тренировки стало понятно, с чего начинать. Заявка через сайт удобнее, чем переписка из десяти сообщений.",
   },
 ];
 
 const faq = [
   {
     question: "Можно ли прийти без подготовки?",
-    answer: "Да, первая тренировка нужна как раз для оценки уровня и выбора безопасной нагрузки.",
+    answer:
+      "Да, первая тренировка нужна как раз для оценки уровня и выбора безопасной нагрузки.",
   },
   {
     question: "Подойдет ли подростку 12-16 лет?",
-    answer: "Да, программа строится с учетом возраста, цели, режима и текущей физической формы.",
+    answer:
+      "Да, программа строится с учетом возраста, цели, режима и текущей физической формы.",
   },
   {
     question: "Как записаться?",
-    answer: "Оставьте заявку в форме, после этого тренер связывается и уточняет удобное время.",
+    answer:
+      "Оставьте заявку в форме, после этого тренер связывается и уточняет удобное время.",
+  },
+];
+
+const gallery = [
+  {
+    src: "/fitness-personal-training.jpg",
+    alt: "Персональная тренировка с тренером",
+  },
+  {
+    src: "/fitness-family-training.jpg",
+    alt: "Семейная тренировка в светлой студии",
+  },
+  {
+    src: "/fitness-teen-training.jpg",
+    alt: "Подростковая тренировка в зале",
   },
 ];
 
@@ -111,16 +158,17 @@ export function FitnessDemoLanding() {
             Как мог бы выглядеть сайт фитнес-тренера
           </h2>
           <p className="mt-4 text-base leading-7 text-neutral-300 sm:text-lg">
-            Ниже находится рабочий фрагмент лендинга: с услугами, ценами,
-            отзывами, FAQ и демо-формой заявки.
+            Ниже рабочий фрагмент лендинга: услуги, цены, преимущества, отзывы,
+            FAQ и демо-форма заявки.
           </p>
         </div>
 
-        <div className="overflow-hidden rounded-lg border border-white/10 bg-[#07100d] shadow-2xl shadow-emerald-950/40">
+        <div className="overflow-hidden rounded-[1.25rem] border border-white/10 bg-[#07100d] shadow-2xl shadow-emerald-950/40">
           <DemoHero />
           <DemoServices />
           <DemoPrices />
           <DemoAdvantages />
+          <DemoGallery />
           <DemoReviews />
           <DemoFaq />
           <DemoLeadForm
@@ -138,43 +186,55 @@ export function FitnessDemoLanding() {
 
 function DemoHero() {
   return (
-    <section className="grid gap-8 border-b border-white/10 px-5 py-12 sm:px-8 lg:grid-cols-[1fr_0.82fr] lg:px-10 lg:py-16">
-      <div>
-        <p className="mb-4 inline-flex rounded-md border border-emerald-200/30 bg-emerald-300/10 px-3 py-2 text-sm font-semibold text-emerald-100">
-          Тренировки для семьи и подростков
-        </p>
-        <h3 className="text-3xl font-bold leading-tight text-white sm:text-5xl">
-          Начните тренироваться спокойно, понятно и без перегруза
-        </h3>
-        <p className="mt-5 max-w-2xl text-base leading-7 text-neutral-300 sm:text-lg">
-          Персональный тренер помогает выбрать цель, адаптировать нагрузку и
-          поддерживать регулярность. Записаться можно за одну минуту.
-        </p>
-        <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-          <a
-            href="#fitness-lead-form"
-            className="inline-flex min-h-11 items-center justify-center rounded-md bg-emerald-300 px-5 py-3 text-sm font-bold text-neutral-950 transition hover:bg-cyan-300"
-          >
-            Записаться на тренировку
-          </a>
-          <a
-            href="https://t.me/galiullin_digital"
-            className="inline-flex min-h-11 items-center justify-center rounded-md border border-white/15 px-5 py-3 text-sm font-bold text-white transition hover:border-emerald-200/70"
-          >
-            Telegram
-          </a>
+    <section className="relative isolate overflow-hidden border-b border-white/10 px-5 py-12 sm:px-8 lg:px-10 lg:py-16">
+      <Image
+        src="/fitness-gym-atmosphere.jpg"
+        alt="Современный тренажерный зал для функциональных тренировок"
+        fill
+        sizes="100vw"
+        className="-z-20 object-cover opacity-42"
+      />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-neutral-950 via-neutral-950/86 to-neutral-950/40" />
+      <div className="grid gap-8 lg:grid-cols-[1fr_0.82fr] lg:items-center">
+        <div>
+          <p className="mb-4 inline-flex rounded-md border border-emerald-200/30 bg-emerald-300/10 px-3 py-2 text-sm font-semibold text-emerald-100">
+            Тренировки для семьи и подростков
+          </p>
+          <h3 className="text-3xl font-bold leading-tight text-white sm:text-5xl">
+            Начните тренироваться спокойно, понятно и без перегруза
+          </h3>
+          <p className="mt-5 max-w-2xl text-base leading-7 text-neutral-300 sm:text-lg">
+            Персональный тренер помогает выбрать цель, адаптировать нагрузку и
+            поддерживать регулярность. Записаться можно за одну минуту.
+          </p>
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <a
+              href="#fitness-lead-form"
+              className="inline-flex min-h-11 items-center justify-center rounded-md bg-emerald-300 px-5 py-3 text-sm font-bold text-neutral-950 transition hover:bg-cyan-300"
+            >
+              Записаться на тренировку
+            </a>
+            <a
+              href="https://t.me/galiullin_digital"
+              className="inline-flex min-h-11 items-center justify-center rounded-md border border-white/15 bg-neutral-950/40 px-5 py-3 text-sm font-bold text-white transition hover:border-emerald-200/70"
+            >
+              Telegram
+            </a>
+          </div>
         </div>
-      </div>
-      <div className="grid content-between gap-4 rounded-lg border border-white/10 bg-neutral-950/70 p-5">
-        <div className="grid grid-cols-2 gap-3">
-          <Stat value="30+" label="семейных стартов" />
-          <Stat value="4.9" label="оценка клиентов" />
-          <Stat value="45 мин" label="пробная тренировка" />
-          <Stat value="1 день" label="до первой записи" />
-        </div>
-        <div className="rounded-lg bg-emerald-300 p-5 text-neutral-950">
-          <p className="text-sm font-bold uppercase">Фокус</p>
-          <p className="mt-2 text-2xl font-black">Заявка вместо долгой переписки</p>
+        <div className="grid gap-4 rounded-lg border border-white/10 bg-neutral-950/78 p-5 backdrop-blur">
+          <div className="grid grid-cols-2 gap-3">
+            <Stat value="30+" label="семейных стартов" />
+            <Stat value="4.9" label="оценка клиентов" />
+            <Stat value="45 мин" label="пробная тренировка" />
+            <Stat value="1 день" label="до первой записи" />
+          </div>
+          <div className="rounded-lg bg-emerald-300 p-5 text-neutral-950">
+            <p className="text-sm font-bold uppercase">Фокус</p>
+            <p className="mt-2 text-2xl font-black">
+              Заявка вместо долгой переписки
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -199,9 +259,26 @@ function DemoServices() {
       />
       <div className="grid gap-4 md:grid-cols-3">
         {services.map((service) => (
-          <article key={service.title} className="rounded-lg bg-white/[0.05] p-5">
-            <h4 className="text-xl font-bold text-white">{service.title}</h4>
-            <p className="mt-3 leading-7 text-neutral-300">{service.text}</p>
+          <article
+            key={service.title}
+            className="overflow-hidden rounded-lg border border-white/10 bg-white/[0.05]"
+          >
+            <div className="relative aspect-[4/3]">
+              <Image
+                src={service.image}
+                alt={service.title}
+                fill
+                sizes="(min-width: 768px) 33vw, 100vw"
+                className="object-cover"
+              />
+              <span className="absolute left-4 top-4 rounded-md bg-emerald-300 px-3 py-2 text-sm font-black text-neutral-950">
+                {service.mark}
+              </span>
+            </div>
+            <div className="p-5">
+              <h4 className="text-xl font-bold text-white">{service.title}</h4>
+              <p className="mt-3 leading-7 text-neutral-300">{service.text}</p>
+            </div>
           </article>
         ))}
       </div>
@@ -211,19 +288,33 @@ function DemoServices() {
 
 function DemoPrices() {
   return (
-    <section className="border-b border-white/10 px-5 py-12 sm:px-8 lg:px-10">
+    <section className="border-b border-white/10 bg-white/[0.02] px-5 py-12 sm:px-8 lg:px-10">
       <DemoHeading title="Цены" text="Три простых варианта без перегруза." />
       <div className="grid gap-4 md:grid-cols-3">
-        {prices.map((price) => (
+        {prices.map((price, index) => (
           <article
             key={price.title}
-            className="rounded-lg border border-white/10 bg-neutral-950/70 p-5"
+            className={`rounded-lg border p-5 ${
+              index === 1
+                ? "border-emerald-200/40 bg-emerald-300 text-neutral-950"
+                : "border-white/10 bg-neutral-950/70 text-white"
+            }`}
           >
-            <p className="text-sm font-semibold uppercase text-cyan-200">
+            <p
+              className={`text-sm font-semibold uppercase ${
+                index === 1 ? "text-neutral-800" : "text-cyan-200"
+              }`}
+            >
               {price.title}
             </p>
-            <p className="mt-3 text-3xl font-black text-white">{price.price}</p>
-            <p className="mt-3 leading-7 text-neutral-300">{price.text}</p>
+            <p className="mt-3 text-3xl font-black">{price.price}</p>
+            <p
+              className={`mt-3 leading-7 ${
+                index === 1 ? "text-neutral-800" : "text-neutral-300"
+              }`}
+            >
+              {price.text}
+            </p>
           </article>
         ))}
       </div>
@@ -241,10 +332,40 @@ function DemoAdvantages() {
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {advantages.map((advantage) => (
           <div
-            key={advantage}
-            className="rounded-md border border-emerald-200/20 bg-emerald-300/10 px-4 py-4 font-bold text-white"
+            key={advantage.title}
+            className="rounded-md border border-emerald-200/20 bg-emerald-300/10 px-4 py-4"
           >
-            {advantage}
+            <p className="text-sm font-black text-emerald-200">
+              {advantage.mark}
+            </p>
+            <p className="mt-2 font-bold text-white">{advantage.title}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function DemoGallery() {
+  return (
+    <section className="border-b border-white/10 bg-white/[0.02] px-5 py-12 sm:px-8 lg:px-10">
+      <DemoHeading
+        title="Атмосфера тренировок"
+        text="Фото помогают показать реальный формат занятий и снизить тревожность перед первой тренировкой."
+      />
+      <div className="grid gap-4 md:grid-cols-3">
+        {gallery.map((item) => (
+          <div
+            key={item.src}
+            className="relative aspect-[4/3] overflow-hidden rounded-lg border border-white/10"
+          >
+            <Image
+              src={item.src}
+              alt={item.alt}
+              fill
+              sizes="(min-width: 768px) 33vw, 100vw"
+              className="object-cover transition duration-500 hover:scale-[1.04]"
+            />
           </div>
         ))}
       </div>
@@ -255,13 +376,25 @@ function DemoAdvantages() {
 function DemoReviews() {
   return (
     <section className="border-b border-white/10 px-5 py-12 sm:px-8 lg:px-10">
-      <DemoHeading title="Отзывы" text="Социальное доказательство рядом с записью." />
-      <div className="grid gap-4 md:grid-cols-2">
+      <DemoHeading
+        title="Отзывы"
+        text="Социальное доказательство рядом с записью повышает доверие к тренеру."
+      />
+      <div className="grid gap-4 lg:grid-cols-3">
         {reviews.map((review) => (
           <article key={review.name} className="rounded-lg bg-white/[0.05] p-5">
-            <p className="text-lg leading-8 text-neutral-100">“{review.text}”</p>
-            <p className="mt-4 text-sm font-semibold text-emerald-200">
-              {review.name}
+            <div className="mb-5 flex items-center gap-3">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-emerald-300 to-cyan-300 text-sm font-black text-neutral-950">
+                {review.name.slice(0, 1)}
+              </div>
+              <div>
+                <p className="font-bold text-white">{review.name}</p>
+                <p className="text-sm text-neutral-400">{review.role}</p>
+              </div>
+            </div>
+            <p className="text-lg leading-8 text-neutral-100">«{review.text}»</p>
+            <p className="mt-4 rounded-md bg-emerald-300/10 px-3 py-2 text-sm font-semibold text-emerald-100">
+              Цель: {review.goal}
             </p>
           </article>
         ))}
@@ -273,7 +406,10 @@ function DemoReviews() {
 function DemoFaq() {
   return (
     <section className="border-b border-white/10 px-5 py-12 sm:px-8 lg:px-10">
-      <DemoHeading title="FAQ" text="Ответы на вопросы, которые обычно уходят в личку." />
+      <DemoHeading
+        title="FAQ"
+        text="Ответы на вопросы, которые обычно уходят в личные сообщения."
+      />
       <div className="grid gap-3">
         {faq.map((item) => (
           <details
@@ -311,7 +447,7 @@ function DemoLeadForm({
       id="fitness-lead-form"
       className="scroll-mt-28 px-5 py-12 sm:px-8 lg:px-10"
     >
-      <div className="grid gap-8 lg:grid-cols-[0.75fr_1fr]">
+      <div className="grid gap-8 rounded-lg border border-emerald-200/20 bg-gradient-to-br from-emerald-300/12 via-neutral-950 to-cyan-300/10 p-5 sm:p-7 lg:grid-cols-[0.75fr_1fr]">
         <div>
           <p className="mb-3 text-sm font-semibold uppercase text-emerald-200">
             Форма заявки
@@ -320,26 +456,24 @@ function DemoLeadForm({
             Записаться на тренировку
           </h3>
           <p className="mt-4 leading-7 text-neutral-300">
-            Форма собирает данные в одном формате. В реальном проекте эта
+            Оставьте контакты, цель и удобное время. В реальном проекте такая
             заявка отправляется тренеру в Telegram.
           </p>
-          <div className="mt-6 flex flex-col gap-3 sm:flex-row lg:flex-col">
-            <a
-              href="https://t.me/galiullin_digital"
-              className="inline-flex min-h-11 items-center justify-center rounded-md border border-cyan-200/40 px-5 py-3 text-sm font-bold text-white transition hover:bg-white/10"
-            >
-              Telegram
-            </a>
-            <a
-              href="https://wa.me/79990000000"
-              className="inline-flex min-h-11 items-center justify-center rounded-md border border-emerald-200/40 px-5 py-3 text-sm font-bold text-white transition hover:bg-white/10"
-            >
-              WhatsApp
-            </a>
+          <div className="mt-6 grid gap-3">
+            {["структурированная заявка", "без звонка на первом шаге", "готово к Telegram"].map(
+              (item) => (
+                <div
+                  key={item}
+                  className="rounded-md border border-white/10 bg-neutral-950/70 px-4 py-3 text-sm font-semibold text-white"
+                >
+                  {item}
+                </div>
+              ),
+            )}
           </div>
         </div>
 
-        <form onSubmit={onSubmit} className="grid gap-4">
+        <form onSubmit={onSubmit} className="grid gap-4 rounded-lg bg-neutral-950/72 p-4 sm:p-5">
           <Field label="Имя">
             <input
               name="name"
