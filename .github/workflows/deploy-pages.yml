@@ -39,6 +39,7 @@ jobs:
         run: npm run build
         env:
           GITHUB_PAGES: "true"
+          NEXT_PUBLIC_BASE_PATH: /galiullin-digital
           NEXT_PUBLIC_SITE_URL: https://albert121111.github.io/galiullin-digital
 
       - name: Prepare Pages artifact

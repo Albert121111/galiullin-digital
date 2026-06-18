@@ -3,6 +3,7 @@
 import Image from "next/image";
 import type { FormEvent, ReactNode } from "react";
 import { useMemo, useState } from "react";
+import { publicAsset } from "@/lib/assets";
 
 type AutoLead = {
   name: string;
@@ -125,7 +126,7 @@ const advantages = [
     text: "Визуальные блоки показывают сервис, оборудование и подход.",
   },
   {
-    title: "Заявки в Telegram",
+    title: "Структурированные заявки",
     text: "В реальном проекте обращения уходят администратору.",
   },
 ];
@@ -201,7 +202,7 @@ const faq = [
   {
     question: "Куда приходит заявка?",
     answer:
-      "В реальном проекте заявка может уходить в Telegram, CRM или таблицу администратора.",
+      "В реальном проекте заявка может уходить в CRM или таблицу администратора.",
   },
 ];
 
@@ -338,7 +339,7 @@ function DemoHero() {
       </div>
       <div className="relative min-h-[430px] overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#10151d] shadow-[0_22px_65px_rgba(0,0,0,0.32)]">
         <Image
-          src="/auto-service-bay.jpg"
+          src={publicAsset("/auto-service-bay.jpg")}
           alt="Современный автосервис с автомобилем на подъемнике"
           fill
           sizes="(min-width: 1024px) 420px, 100vw"
@@ -381,7 +382,7 @@ function DemoServices() {
           >
             <div className="relative h-44">
               <Image
-                src={service.image}
+                src={publicAsset(service.image)}
                 alt={service.alt}
                 fill
                 sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
@@ -471,7 +472,7 @@ function CostCalculator({
           </p>
           <div className="mt-6 overflow-hidden rounded-[1.35rem] border border-white/10">
             <Image
-              src="/auto-brake-parts.jpg"
+              src={publicAsset("/auto-brake-parts.jpg")}
               alt="Автомобильные детали и инструмент"
               width={760}
               height={500}
@@ -573,7 +574,7 @@ function DemoAdvantages() {
               className="relative min-h-48 overflow-hidden rounded-[1.35rem] border border-white/10"
             >
               <Image
-                src={item.image}
+                src={publicAsset(item.image)}
                 alt={item.alt}
                 fill
                 sizes="(min-width: 1024px) 33vw, 100vw"
@@ -601,7 +602,7 @@ function DemoProcessPhotos() {
             className="group relative min-h-64 overflow-hidden rounded-[1.5rem] border border-white/10"
           >
             <Image
-              src={photo.image}
+              src={publicAsset(photo.image)}
               alt={photo.alt}
               fill
               loading="eager"
@@ -658,7 +659,7 @@ function DemoReviews() {
             <div className="mb-5 flex items-center gap-4">
               <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full border border-white/10">
                 <Image
-                  src={review.image}
+                  src={publicAsset(review.image)}
                   alt={review.alt}
                   fill
                   sizes="56px"
@@ -732,7 +733,7 @@ function LeadForm({
               href="https://t.me/galiullin_digital"
               className="inline-flex min-h-11 items-center justify-center rounded-full border border-sky-200/40 px-5 py-3 text-sm font-bold text-white transition hover:bg-white/10 focus:outline-none focus:ring-4 focus:ring-sky-300/20"
             >
-              Telegram
+              Связаться
             </a>
             <a
               href="/contact"

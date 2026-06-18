@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { ButtonLink } from "@/components/ButtonLink";
 import { CaseGrowthBlocks } from "@/components/CaseGrowthBlocks";
 import { FitnessDemoLanding } from "@/components/FitnessDemoLanding";
+import { publicAsset } from "@/lib/assets";
 
 export const metadata: Metadata = {
   title: "FamilyFit Coach - демо-кейс",
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 const businessProblems = [
-  "У тренера нет удобной страницы, куда можно отправлять клиентов из рекламы, Telegram и личных сообщений.",
+  "У тренера нет удобной страницы, куда можно отправлять клиентов из рекламы и личных сообщений.",
   "Клиенты задают одни и те же вопросы про формат, цены, возраст, расписание и первую тренировку.",
   "Нет понятного списка услуг и цен, поэтому человеку сложнее быстро принять решение.",
   "Заявки легко теряются среди переписок, голосовых сообщений и повторных уточнений.",
@@ -51,10 +52,10 @@ const siteFunctions = [
 ];
 
 const clientBenefits = [
-  "Понятная страница, которую можно отправить из рекламы, Telegram или личных сообщений.",
+  "Понятная страница, которую можно отправить из рекламы или личных сообщений.",
   "Структурированная заявка с целью тренировок, временем и комментарием клиента.",
   "Меньше повторяющихся вопросов про формат, цены, возраст и первую тренировку.",
-  "Основа для дальнейшего подключения Telegram, таблицы заявок и простого учета клиентов.",
+  "Основа для дальнейшего подключения таблицы заявок и простого учета клиентов.",
 ];
 
 const resultStats = [
@@ -131,7 +132,7 @@ export default function FitnessCasePage() {
             <div className="overflow-hidden rounded-[1.25rem] border border-white/10 bg-neutral-950/70 p-3 shadow-[0_30px_110px_rgba(0,0,0,0.5)]">
               <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
                 <Image
-                  src="/fitness-personal-training.jpg"
+                  src={publicAsset("/fitness-personal-training.jpg")}
                   alt="Фитнес-тренер показывает упражнение клиенту в современном зале"
                   fill
                   priority
@@ -183,7 +184,7 @@ export default function FitnessCasePage() {
       <CaseSection
         eyebrow="Что было сделано"
         title="Собран лендинг, который объясняет услугу и ведет к заявке"
-        description="Страница показывает форматы тренировок, цены, отзывы, ответы на вопросы и форму записи, которую дальше можно подключить к Telegram."
+        description="Страница показывает форматы тренировок, цены, отзывы, ответы на вопросы и форму записи, которую дальше можно подключить к таблице заявок."
         className="bg-white/[0.02]"
       >
         <div className="grid gap-5 lg:grid-cols-4">
@@ -194,7 +195,7 @@ export default function FitnessCasePage() {
             >
               <div className="relative aspect-[4/3]">
                 <Image
-                  src={item.image}
+                  src={publicAsset(item.image)}
                   alt={item.title}
                   fill
                   sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
@@ -278,7 +279,7 @@ export default function FitnessCasePage() {
                 }`}
               >
                 <Image
-                  src={photo.src}
+                  src={publicAsset(photo.src)}
                   alt={photo.alt}
                   fill
                   sizes="(min-width: 768px) 25vw, 100vw"

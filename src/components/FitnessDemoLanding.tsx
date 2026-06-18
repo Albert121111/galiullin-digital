@@ -3,6 +3,7 @@
 import Image from "next/image";
 import type { FormEvent, ReactNode } from "react";
 import { useState } from "react";
+import { publicAsset } from "@/lib/assets";
 
 type FitnessLead = {
   name: string;
@@ -188,7 +189,7 @@ function DemoHero() {
   return (
     <section className="relative isolate overflow-hidden border-b border-white/10 px-5 py-12 sm:px-8 lg:px-10 lg:py-16">
       <Image
-        src="/fitness-gym-atmosphere.jpg"
+        src={publicAsset("/fitness-gym-atmosphere.jpg")}
         alt="Современный тренажерный зал для функциональных тренировок"
         fill
         sizes="100vw"
@@ -218,7 +219,7 @@ function DemoHero() {
               href="https://t.me/galiullin_digital"
               className="inline-flex min-h-11 items-center justify-center rounded-md border border-white/15 bg-neutral-950/40 px-5 py-3 text-sm font-bold text-white transition hover:border-emerald-200/70"
             >
-              Telegram
+              Связаться
             </a>
           </div>
         </div>
@@ -265,7 +266,7 @@ function DemoServices() {
           >
             <div className="relative aspect-[4/3]">
               <Image
-                src={service.image}
+                src={publicAsset(service.image)}
                 alt={service.title}
                 fill
                 sizes="(min-width: 768px) 33vw, 100vw"
@@ -360,7 +361,7 @@ function DemoGallery() {
             className="relative aspect-[4/3] overflow-hidden rounded-lg border border-white/10"
           >
             <Image
-              src={item.src}
+              src={publicAsset(item.src)}
               alt={item.alt}
               fill
               sizes="(min-width: 768px) 33vw, 100vw"
@@ -457,10 +458,10 @@ function DemoLeadForm({
           </h3>
           <p className="mt-4 leading-7 text-neutral-300">
             Оставьте контакты, цель и удобное время. В реальном проекте такая
-            заявка отправляется тренеру в Telegram.
+            заявка готова для таблицы или CRM тренера.
           </p>
           <div className="mt-6 grid gap-3">
-            {["структурированная заявка", "без звонка на первом шаге", "готово к Telegram"].map(
+            {["структурированная заявка", "без звонка на первом шаге", "готово к CRM"].map(
               (item) => (
                 <div
                   key={item}

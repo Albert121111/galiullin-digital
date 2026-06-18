@@ -3,6 +3,7 @@
 import Image from "next/image";
 import type { FormEvent, ReactNode } from "react";
 import { useState } from "react";
+import { publicAsset } from "@/lib/assets";
 
 type BeautyLead = {
   name: string;
@@ -180,7 +181,7 @@ const advantages = [
   },
   {
     title: "Готово к CRM",
-    text: "Форму можно подключить к Telegram, таблице или CRM администратора.",
+    text: "Форму можно подключить к таблице или CRM администратора.",
   },
 ];
 
@@ -222,7 +223,7 @@ const faq = [
   {
     question: "Куда приходит запись?",
     answer:
-      "В реальном проекте заявка может уходить в Telegram, CRM или таблицу администратора.",
+      "В реальном проекте заявка может уходить в CRM или таблицу администратора.",
   },
 ];
 
@@ -332,7 +333,7 @@ function DemoHero() {
       <div className="relative">
         <div className="relative min-h-[430px] overflow-hidden rounded-[1.75rem] bg-[#eadbd2] shadow-[0_22px_65px_rgba(72,50,43,0.16)]">
           <Image
-            src="/beauty-treatment.jpg"
+            src={publicAsset("/beauty-treatment.jpg")}
             alt="Уходовая зона BeautyLine Studio"
             fill
             sizes="(min-width: 1024px) 420px, 100vw"
@@ -376,7 +377,7 @@ function DemoServices() {
           >
             <div className="relative h-44">
               <Image
-                src={service.image}
+                src={publicAsset(service.image)}
                 alt={service.alt}
                 fill
                 sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
@@ -416,7 +417,7 @@ function DemoMasters() {
           >
             <div className="relative h-72">
               <Image
-                src={master.image}
+                src={publicAsset(master.image)}
                 alt={master.alt}
                 fill
                 sizes="(min-width: 768px) 33vw, 100vw"
@@ -508,7 +509,7 @@ function DemoWorks() {
           >
             <div className="relative h-60 overflow-hidden">
               <Image
-                src={work.image}
+                src={publicAsset(work.image)}
                 alt={work.alt}
                 fill
                 sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
@@ -568,7 +569,7 @@ function DemoAtmosphere() {
             }`}
           >
             <Image
-              src={item.image}
+              src={publicAsset(item.image)}
               alt={item.alt}
               fill
               loading="eager"
@@ -605,7 +606,7 @@ function DemoReviews() {
             <div className="mb-5 flex items-center gap-4">
               <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full">
                 <Image
-                  src={review.image}
+                  src={publicAsset(review.image)}
                   alt={review.alt}
                   fill
                   sizes="56px"

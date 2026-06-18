@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { AutoServiceDemoSite } from "@/components/AutoServiceDemoSite";
 import { CaseGrowthBlocks } from "@/components/CaseGrowthBlocks";
+import { publicAsset } from "@/lib/assets";
 
 export const metadata: Metadata = {
   title: "AutoPro Service - демо-кейс сайта автосервиса",
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
     title: "AutoPro Service - демо-кейс сайта автосервиса",
     description:
       "Технологичный сайт автосервиса с записью без звонка, расчетом стоимости и структурированными заявками.",
-    images: ["/auto-service-bay.jpg"],
+    images: [publicAsset("/auto-service-bay.jpg")],
   },
 };
 
@@ -59,14 +60,14 @@ const siteFunctions = [
   "Кнопки связи",
   "FAQ",
   "Мобильная версия",
-  "Подготовка Telegram",
+  "Подготовка CRM",
 ];
 
 const clientBenefits = [
   "Технологичная страница, которая сразу показывает услуги, оборудование и уровень сервиса.",
   "Калькулятор предварительной стоимости, чтобы клиент понимал порядок бюджета до заявки.",
   "Структурированное обращение с автомобилем, услугой, временем и комментарием без лишнего звонка.",
-  "Основа для рекламы, Telegram-уведомлений и дальнейшей CRM-обработки обращений.",
+  "Основа для рекламы, таблицы заявок и дальнейшей CRM-обработки обращений.",
 ];
 
 const processPhotos = [
@@ -106,7 +107,7 @@ export default function AutoserviceCasePage() {
       <section className="relative isolate px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
         <div className="absolute inset-0 -z-20 bg-[#07090d]" />
         <Image
-          src="/auto-service-bay.jpg"
+          src={publicAsset("/auto-service-bay.jpg")}
           alt="Современный автосервис AutoPro Service"
           fill
           priority
@@ -153,7 +154,7 @@ export default function AutoserviceCasePage() {
             <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-black/45 p-3 shadow-[0_34px_110px_rgba(0,0,0,0.42)] backdrop-blur">
               <div className="relative aspect-[4/5] overflow-hidden rounded-[1.55rem] bg-[#10151d] sm:aspect-[5/4] lg:aspect-[4/5]">
                 <Image
-                  src="/auto-diagnostics.jpg"
+                  src={publicAsset("/auto-diagnostics.jpg")}
                   alt="Диагностика автомобиля в AutoPro Service"
                   fill
                   priority
@@ -216,7 +217,7 @@ export default function AutoserviceCasePage() {
       <AutoCaseSection
         eyebrow="Что было сделано"
         title="Собран сайт, который объясняет услуги и ведет к заявке"
-        description="Страница показывает направления сервиса, популярные работы, примерный расчет, отзывы и форму заявки, которую дальше можно подключить к Telegram."
+        description="Страница показывает направления сервиса, популярные работы, примерный расчет, отзывы и форму заявки, которую дальше можно подключить к CRM или таблице."
         className="bg-white/[0.025]"
       >
         <div className="grid gap-5 md:grid-cols-2">
@@ -227,7 +228,7 @@ export default function AutoserviceCasePage() {
             >
               <div className="relative h-56">
                 <Image
-                  src={item.image}
+                  src={publicAsset(item.image)}
                   alt={item.alt}
                   fill
                   sizes="(min-width: 768px) 50vw, 100vw"
@@ -283,7 +284,7 @@ export default function AutoserviceCasePage() {
               className="group relative min-h-72 overflow-hidden rounded-[1.65rem] border border-white/10 bg-[#0d1117] shadow-[0_18px_60px_rgba(0,0,0,0.30)]"
             >
               <Image
-                src={photo.image}
+                src={publicAsset(photo.image)}
                 alt={photo.alt}
                 fill
                 sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
@@ -326,7 +327,7 @@ export default function AutoserviceCasePage() {
                 Хотите похожий сайт для автосервиса?
               </h3>
               <p className="mt-3 max-w-2xl leading-7 text-slate-300">
-                Можно адаптировать услуги, прайс, калькулятор, Telegram и
+                Можно адаптировать услуги, прайс, калькулятор, CRM и
                 сценарий записи под ваш сервис.
               </p>
             </div>

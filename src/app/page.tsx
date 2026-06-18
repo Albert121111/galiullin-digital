@@ -3,26 +3,27 @@ import type { Metadata } from "next";
 import { ButtonLink } from "@/components/ButtonLink";
 import { Section } from "@/components/Section";
 import { benefits, contacts, projects, services, workflow } from "@/data/site";
+import { publicAsset } from "@/lib/assets";
 
 export const metadata: Metadata = {
-  title: "Galiullin Digital - сайты, Telegram-боты и AI-автоматизация",
+  title: "Galiullin Digital - сайты и автоматизация заявок",
   description:
-    "Galiullin Digital помогает малому бизнесу получать заявки через современные сайты, Telegram-ботов, AI-ассистентов и простую автоматизацию.",
+    "Galiullin Digital помогает малому бизнесу получать заявки через современные сайты, формы, онлайн-запись и простую автоматизацию.",
   openGraph: {
-    title: "Galiullin Digital - портфолио digital/AI-студии",
+    title: "Galiullin Digital - портфолио digital-студии",
     description:
       "Демо-кейсы сайтов, форм заявок, онлайн-записи и автоматизации для малого бизнеса.",
-    images: ["/og-image.png"],
+    images: [publicAsset("/og-image.png")],
   },
 };
 
 const heroStats = [
   { value: "3", label: "демо-кейса для разных ниш" },
-  { value: "24/7", label: "формы и боты принимают заявки" },
+  { value: "24/7", label: "формы принимают заявки" },
   { value: "1", label: "понятный первый шаг к запуску" },
 ];
 
-const serviceMarks = ["Сайт", "Бот", "AI", "CRM", "Заявки", "Демо"];
+const serviceMarks = ["Сайт", "Форма", "Запись", "CRM", "Заявки", "Демо"];
 
 const comfortCards = [
   {
@@ -47,7 +48,7 @@ const comfortCards = [
   },
   {
     title: "Без лишней сложности",
-    text: "Решение можно развивать постепенно: сайт, Telegram, таблицы, AI-сценарии.",
+    text: "Решение можно развивать постепенно: сайт, формы, таблицы и CRM.",
   },
 ];
 
@@ -62,7 +63,7 @@ const demoTrustCards = [
   },
   {
     title: "Легче начать с малого",
-    text: "Можно запустить демо-версию, проверить подачу и потом подключать Telegram, CRM или AI.",
+    text: "Можно запустить демо-версию, проверить подачу и потом подключать таблицы или CRM.",
   },
   {
     title: "Фокус на реальных действиях",
@@ -83,12 +84,12 @@ export default function Home() {
               Galiullin Digital
             </p>
             <h1 className="text-4xl font-bold leading-[1.05] text-white sm:text-5xl lg:text-6xl">
-              Сайты, Telegram-боты и AI-автоматизация для малого бизнеса
+              Сайты и автоматизация заявок для малого бизнеса
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-neutral-200 sm:text-xl">
               Помогаю бизнесу получать больше заявок, быстрее отвечать клиентам и
               выглядеть современно в интернете. Начинаем с понятного демо, затем
-              подключаем формы, Telegram и простую автоматизацию.
+              подключаем формы, онлайн-запись и простую автоматизацию.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <ButtonLink href="#projects">Посмотреть проекты</ButtonLink>
@@ -116,12 +117,12 @@ export default function Home() {
               +18 заявок за неделю
             </div>
             <div className="absolute -left-7 top-28 z-20 hidden rounded-lg border border-white/10 bg-neutral-950/92 p-4 text-sm text-white shadow-2xl shadow-black/35 sm:block">
-              <p className="font-semibold text-cyan-200">Telegram</p>
-              <p className="mt-2 text-neutral-300">Новая заявка: сайт + бот</p>
+              <p className="font-semibold text-cyan-200">Заявка</p>
+              <p className="mt-2 text-neutral-300">Клиент выбрал услугу</p>
             </div>
             <div className="absolute -bottom-7 right-7 z-20 hidden rounded-lg border border-cyan-200/20 bg-neutral-950/92 p-4 text-sm text-white shadow-2xl shadow-black/35 md:block">
-              <p className="font-semibold text-emerald-200">AI ассистент</p>
-              <p className="mt-2 text-neutral-300">Подобрал услугу и цель</p>
+              <p className="font-semibold text-emerald-200">Автоматизация</p>
+              <p className="mt-2 text-neutral-300">Данные готовы к обработке</p>
             </div>
 
             <div className="relative z-10 rounded-[1.25rem] border border-white/12 bg-white/[0.06] p-3 shadow-[0_30px_110px_rgba(0,0,0,0.55)] backdrop-blur">
@@ -135,8 +136,8 @@ export default function Home() {
                   </span>
                 </div>
                 <Image
-                  src="/studio-dashboard.png"
-                  alt="Интерфейс digital-студии с заявками, Telegram-ботом и AI-автоматизацией"
+                  src={publicAsset("/studio-dashboard.png")}
+                  alt="Интерфейс digital-студии с заявками и автоматизацией"
                   width={1400}
                   height={1000}
                   priority
@@ -153,8 +154,8 @@ export default function Home() {
       <Section
         id="services"
         eyebrow="Услуги"
-        title="Помогаю превратить сайт и мессенджеры в систему заявок"
-        description="Можно начать с компактного демо, а затем постепенно добавить формы, Telegram-уведомления, таблицы, AI-сценарии и понятную обработку обращений."
+        title="Помогаю превратить сайт в понятную систему заявок"
+        description="Можно начать с компактного демо, а затем постепенно добавить формы, онлайн-запись, таблицы и понятную обработку обращений."
       >
         <div className="mb-7 flex flex-wrap gap-2">
           {serviceMarks.map((mark) => (
@@ -201,7 +202,7 @@ export default function Home() {
             >
               <div className="relative aspect-[16/10] overflow-hidden border-b border-white/10 bg-neutral-950">
                 <Image
-                  src={project.image}
+                  src={publicAsset(project.image)}
                   alt={project.imageAlt}
                   width={1120}
                   height={720}
@@ -336,7 +337,7 @@ export default function Home() {
       <Section
         eyebrow="Обо мне"
         title="Делаю простые digital-решения для малого бизнеса"
-        description="Я создаю сайты и автоматизацию для малого бизнеса: лендинги, Telegram-ботов, формы заявок и понятные AI-сценарии. Делаю упор на ясную структуру, заявки и решения, которые можно запустить без лишней сложности."
+        description="Я создаю сайты и простую автоматизацию для малого бизнеса: лендинги, формы заявок, онлайн-запись и понятные таблицы. Делаю упор на ясную структуру, заявки и решения, которые можно запустить без лишней сложности."
         className="bg-white/[0.02]"
       >
         <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
@@ -347,7 +348,7 @@ export default function Home() {
               После этого проще спокойно решить, что запускать первым.
             </p>
             <div className="mt-6 grid gap-3 sm:grid-cols-3">
-              {["Сайт", "Telegram", "AI"].map((item) => (
+              {["Сайт", "Форма", "CRM"].map((item) => (
                 <div
                   key={item}
                   className="rounded-md border border-white/10 bg-white/[0.05] px-4 py-3 text-sm font-semibold text-white"
@@ -374,7 +375,7 @@ export default function Home() {
             </div>
             <div className="mt-6 overflow-hidden rounded-md border border-white/10">
               <Image
-                src="/studio-dashboard.png"
+                src={publicAsset("/studio-dashboard.png")}
                 alt="Демо-экран Galiullin Digital с системой заявок"
                 width={900}
                 height={640}
@@ -412,7 +413,7 @@ export default function Home() {
       <Section
         eyebrow="Контакты"
         title="Давайте обсудим проект"
-        description="Напишите нишу, услугу и то, какую заявку нужно получать. Я предложу первый шаг: демо, форму, бота или простую автоматизацию."
+        description="Напишите нишу, услугу и то, какую заявку нужно получать. Я предложу первый шаг: демо, форму или простую автоматизацию."
       >
         <div className="grid gap-4 md:grid-cols-3">
           {Object.values(contacts).map((contact) => (

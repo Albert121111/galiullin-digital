@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { publicAsset } from "@/lib/assets";
 import "./globals.css";
 
 const siteUrl =
@@ -9,16 +10,15 @@ const siteUrl =
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Galiullin Digital - сайты, боты и AI-автоматизация",
+    default: "Galiullin Digital - сайты и автоматизация заявок",
     template: "%s | Galiullin Digital",
   },
   description:
-    "Портфолио digital/AI-студии для малого бизнеса: сайты, Telegram-боты, AI-ассистенты, формы заявок и простая автоматизация.",
+    "Портфолио digital-студии для малого бизнеса: сайты, формы заявок, онлайн-запись и простая автоматизация.",
   applicationName: "Galiullin Digital",
   keywords: [
     "создание сайтов",
-    "Telegram бот",
-    "AI автоматизация",
+    "автоматизация заявок",
     "лендинг для бизнеса",
     "портфолио digital студии",
   ],
@@ -32,12 +32,12 @@ export const metadata: Metadata = {
     locale: "ru_RU",
     url: siteUrl,
     siteName: "Galiullin Digital",
-    title: "Galiullin Digital - сайты, боты и AI-автоматизация",
+    title: "Galiullin Digital - сайты и автоматизация заявок",
     description:
-      "Сайты, Telegram-боты, AI-ассистенты и автоматизация заявок для малого бизнеса.",
+      "Сайты, формы заявок, онлайн-запись и автоматизация заявок для малого бизнеса.",
     images: [
       {
-        url: "/og-image.png",
+        url: publicAsset("/og-image.png"),
         width: 1200,
         height: 630,
         alt: "Galiullin Digital portfolio preview",
@@ -46,10 +46,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Galiullin Digital - сайты, боты и AI-автоматизация",
+    title: "Galiullin Digital - сайты и автоматизация заявок",
     description:
-      "Сайты, Telegram-боты, AI-ассистенты и автоматизация заявок для малого бизнеса.",
-    images: ["/og-image.png"],
+      "Сайты, формы заявок, онлайн-запись и автоматизация заявок для малого бизнеса.",
+    images: [publicAsset("/og-image.png")],
   },
 };
 

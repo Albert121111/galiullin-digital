@@ -5,11 +5,11 @@ import { contactChannels, contacts } from "@/data/site";
 export const metadata: Metadata = {
   title: "Контакты",
   description:
-    "Связаться с Galiullin Digital, чтобы обсудить сайт, Telegram-бота, форму заявок или AI-автоматизацию для малого бизнеса.",
+    "Связаться с Galiullin Digital, чтобы обсудить сайт, форму заявок, онлайн-запись или простую автоматизацию для малого бизнеса.",
   openGraph: {
     title: "Контакты Galiullin Digital",
     description:
-      "Напишите в Telegram, чтобы обсудить демо сайта, форму заявок или простую автоматизацию.",
+      "Напишите, чтобы обсудить демо сайта, форму заявок или простую автоматизацию.",
   },
 };
 
@@ -29,12 +29,11 @@ export default function ContactPage() {
             Контакты
           </p>
           <h1 className="max-w-3xl text-4xl font-bold leading-tight text-white sm:text-6xl">
-            Обсудим сайт, бота или автоматизацию для заявок
+            Обсудим сайт или автоматизацию для заявок
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-neutral-300">
             Напишите нишу, услугу и задачу. Я предложу понятный первый шаг:
-            демо-страницу, форму, Telegram-уведомления или небольшую
-            автоматизацию.
+            демо-страницу, форму, онлайн-запись или небольшую автоматизацию.
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <ButtonLink href={contacts.telegram.href}>

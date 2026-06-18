@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { BeautyDemoSite } from "@/components/BeautyDemoSite";
 import { CaseGrowthBlocks } from "@/components/CaseGrowthBlocks";
+import { publicAsset } from "@/lib/assets";
 
 export const metadata: Metadata = {
   title: "BeautyLine Studio - демо-кейс сайта салона красоты",
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
     title: "BeautyLine Studio - демо-кейс сайта салона красоты",
     description:
       "Эстетичный сайт для салона красоты с онлайн-записью, мастерами, прайсом и галереей работ.",
-    images: ["/beauty-salon-interior.jpg"],
+    images: [publicAsset("/beauty-salon-interior.jpg")],
   },
 };
 
@@ -59,14 +60,14 @@ const siteFunctions = [
   "Отзывы клиентов",
   "FAQ",
   "Мобильная версия",
-  "Подготовка Telegram/CRM",
+  "Подготовка CRM",
 ];
 
 const clientBenefits = [
   "Красивая страница, которую можно отправить клиенту вместо набора постов и прайс-скринов.",
   "Онлайн-запись с услугой, мастером, датой, временем и комментарием в одном формате.",
   "Больше доверия за счет фото мастеров, атмосферы салона, работ и отзывов.",
-  "Основа для подключения Telegram, CRM или таблицы администратора без ручного копирования заявок.",
+  "Основа для подключения CRM или таблицы администратора без ручного копирования заявок.",
 ];
 
 const atmosphere = [
@@ -151,7 +152,7 @@ export default function BeautyCasePage() {
             <div className="overflow-hidden rounded-[2rem] border border-white/85 bg-white/72 p-3 shadow-[0_30px_90px_rgba(72,50,43,0.18)] backdrop-blur">
               <div className="relative aspect-[4/5] overflow-hidden rounded-[1.55rem] bg-[#eadbd2] sm:aspect-[5/4] lg:aspect-[4/5]">
                 <Image
-                  src="/beauty-salon-interior.jpg"
+                  src={publicAsset("/beauty-salon-interior.jpg")}
                   alt="Светлый интерьер салона красоты BeautyLine Studio"
                   fill
                   priority
@@ -171,7 +172,7 @@ export default function BeautyCasePage() {
             </div>
 
             <div className="absolute -right-4 bottom-7 hidden w-56 rounded-3xl bg-[#2b2928] p-5 text-white shadow-[0_18px_45px_rgba(72,50,43,0.24)] md:block">
-              <p className="text-sm font-bold text-[#f1c7d0]">Telegram/CRM</p>
+              <p className="text-sm font-bold text-[#f1c7d0]">CRM</p>
               <p className="mt-2 text-sm leading-6 text-[#efe7e2]">
                 Заявка приходит с услугой, мастером, датой и комментарием.
               </p>
@@ -203,7 +204,7 @@ export default function BeautyCasePage() {
       <BeautyCaseSection
         eyebrow="Что было сделано"
         title="Собран сайт, который красиво показывает салон и ведет к записи"
-        description="Страница объединяет услуги, мастеров, цены, отзывы и форму записи, которую затем можно подключить к Telegram или CRM."
+        description="Страница объединяет услуги, мастеров, цены, отзывы и форму записи, которую затем можно подключить к CRM или таблице."
         className="bg-[#fffaf7]"
       >
         <div className="grid gap-5 md:grid-cols-2">
@@ -214,7 +215,7 @@ export default function BeautyCasePage() {
             >
               <div className="relative h-56">
                 <Image
-                  src={item.image}
+                  src={publicAsset(item.image)}
                   alt={item.alt}
                   fill
                   sizes="(min-width: 768px) 50vw, 100vw"
@@ -275,7 +276,7 @@ export default function BeautyCasePage() {
             >
               <div className="relative h-72">
                 <Image
-                  src={item.image}
+                  src={publicAsset(item.image)}
                   alt={item.alt}
                   fill
                   sizes={
@@ -326,7 +327,7 @@ export default function BeautyCasePage() {
               </h3>
               <p className="mt-3 max-w-2xl leading-7 text-[#eadfd9]">
                 Можно адаптировать структуру под ваши услуги, мастеров,
-                прайс, Telegram и реальные процессы записи.
+                прайс, CRM и реальные процессы записи.
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">

@@ -10,7 +10,7 @@ export function Footer() {
             Galiullin Digital
           </Link>
           <p className="mt-2 max-w-xl">
-            Сайты, Telegram-боты и AI-автоматизация для малого бизнеса.
+            Сайты, формы заявок и простая автоматизация для малого бизнеса.
           </p>
         </div>
         <div className="flex flex-wrap gap-3">
